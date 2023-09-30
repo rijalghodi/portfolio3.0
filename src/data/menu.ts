@@ -17,4 +17,8 @@ export const menus: Menu[] = [
     title: 'Contact',
     link: '/contact',
   },
+  {
+    title: 'Github',
+    link: 'https://github.com/rijalghodi',
+  },
 ];

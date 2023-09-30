@@ -30,6 +30,7 @@ export function DefaultLayout(props: Props) {
               margin: 0,
               paddingLeft: '0px !important',
               paddingRight: '0px !important',
+              paddingBottom: 64,
             },
           }}
           navbarOffsetBreakpoint="sm"

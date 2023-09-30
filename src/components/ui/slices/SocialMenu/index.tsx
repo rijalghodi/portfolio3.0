@@ -28,7 +28,7 @@ export function SocialMenu(props: Props) {
       noWrap={groupProps.noWrap ?? false}
     >
       <ActionIcon
-        color={color ?? 'brand'}
+        color={color}
         radius="xl"
         variant="subtle"
         component="a"
@@ -47,7 +47,7 @@ export function SocialMenu(props: Props) {
         <Icon icon="ic:round-facebook" width="75%" />
       </ActionIcon>
       <ActionIcon
-        color={color ?? 'brand'}
+        color={color}
         radius="xl"
         variant="subtle"
         component="a"
@@ -65,7 +65,7 @@ export function SocialMenu(props: Props) {
         <Icon icon="mdi:instagram" width="75%" color={color} />
       </ActionIcon>
       <ActionIcon
-        color={color ?? 'brand'}
+        color={color}
         radius="xl"
         variant="subtle"
         component="a"

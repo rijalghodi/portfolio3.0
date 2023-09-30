@@ -27,7 +27,7 @@ export function Footer() {
             : theme.colors.neutral[2]
         }
         className={shadows.upShadow}
-        pt="xl"
+        pt={64}
         px="sm"
         sx={{
           borderRadius: 0,
@@ -35,8 +35,8 @@ export function Footer() {
           borderTopRightRadius: theme.radius.lg,
         }}
       >
-        <Stack spacing="md" maw={400} mx="auto">
-          <Stack spacing="sm">
+        <Stack spacing="lg" maw={400} mx="auto">
+          <Stack spacing="md">
             <Text ta="center" className={typo.heading3}>
               Let's Work Together
             </Text>

@@ -7,17 +7,16 @@ export const useButtonStyles = createStyles((theme) => ({
     color:
       theme.colorScheme === 'dark'
         ? theme.colors.neutral[1]
-        : theme.colors.dark[5],
+        : theme.colors.dark[4],
     backgroundColor:
       theme.colorScheme === 'dark'
-        ? theme.colors.dark[4]
-        : theme.colors.neutral[0],
+        ? theme.colors.dark[5]
+        : theme.colors.neutral[1],
     '&:hover': {
       backgroundColor:
         theme.colorScheme === 'dark'
-          ? theme.colors.dark[3]
-          : theme.colors.neutral[1],
-      borderColor: 'rgba(26, 28, 56, 0.2)',
+          ? theme.colors.dark[4]
+          : theme.colors.neutral[0],
     },
     '&:active': {
       backgroundColor:
