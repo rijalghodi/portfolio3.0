@@ -27,7 +27,9 @@ export function DefaultLayout(props: Props) {
           styles={{
             main: {
               borderRadius: theme.spacing.md,
-              marginTop: 90,
+              margin: 0,
+              paddingLeft: '0px !important',
+              paddingRight: '0px !important',
             },
           }}
           navbarOffsetBreakpoint="sm"

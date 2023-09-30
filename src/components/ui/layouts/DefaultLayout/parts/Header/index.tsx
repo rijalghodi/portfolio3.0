@@ -38,6 +38,7 @@ export function Header() {
       left={0}
       right={0}
       top={0}
+      zIndex={100} // FIXME: Relative components still above me
     >
       <ResponsiveWrapper>
         <Paper

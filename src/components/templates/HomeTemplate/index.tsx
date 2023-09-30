@@ -1,11 +1,12 @@
-import { Box } from '@mantine/core';
+import { Stack } from '@mantine/core';
 import React from 'react';
 
-import { Introduction } from './parts';
+import { Introduction, TechStack } from './parts';
 export function HomeTemplate() {
   return (
-    <Box>
+    <Stack spacing={64}>
       <Introduction />
-    </Box>
+      <TechStack />
+    </Stack>
   );
 }

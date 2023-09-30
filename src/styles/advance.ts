@@ -2,9 +2,9 @@ import { createStyles } from '@mantine/core';
 
 export const useShadowStyles = createStyles(() => ({
   heavyShadow: {
-    boxShadow: '0px 4px 40px 0px rgba(0, 0, 0, 0.04)',
+    boxShadow: '0px 4px 40px 0px rgba(0, 0, 0, 0.1)',
     '&:hover': {
-      boxShadow: '0px 6px 80px 0px rgba(0, 0, 0, 0.04)',
+      boxShadow: '0px 6px 80px 0px rgba(0, 0, 0, 0.1)',
     },
   },
   defaultShadow: {

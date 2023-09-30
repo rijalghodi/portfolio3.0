@@ -1,5 +1,4 @@
 import {
-  Button,
   Divider,
   Group,
   Paper,
@@ -8,10 +7,9 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
-import { IconCopy, IconSquareRoundedPlus } from '@tabler/icons-react';
 import React from 'react';
 
-import { SocialMenu } from '@/components';
+import { CallToActionButton, SocialMenu } from '@/components';
 
 import { useShadowStyles, useTypoStyles } from '@/styles';
 
@@ -42,12 +40,7 @@ export function Footer() {
             <Text ta="center" className={typo.heading3}>
               Let's Work Together
             </Text>
-            <Group position="center" spacing="xs">
-              <Button leftIcon={<IconSquareRoundedPlus />}>Hire Me</Button>
-              <Button leftIcon={<IconCopy />} variant="outline">
-                Copy Email
-              </Button>
-            </Group>
+            <CallToActionButton />
           </Stack>
           <Paper
             radius="xl"
@@ -68,7 +61,7 @@ export function Footer() {
         </Stack>
         <Divider mt="md" />
         <Text ta="center" py="xs" className={typo.bodySm}>
-          Copyright ©️ Rijal Ghodi 2023
+          Handcrafted by Rijal Ghodi 2023
         </Text>
       </Paper>
     </footer>
