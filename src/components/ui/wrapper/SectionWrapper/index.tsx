@@ -11,7 +11,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import { IconArrowRight } from '@tabler/icons-react';
 import React from 'react';
 
-import { useShadowStyles, useTypoStyles } from '@/styles';
+import { useButtonStyles, useShadowStyles, useTypoStyles } from '@/styles';
 type Props = {
   title: string;
   titleOrder?: TitleOrder;
@@ -24,6 +24,7 @@ export function SectionWrapper(props: Props) {
   const xSmallScreen = useMediaQuery('(max-width: 576px)');
   const { classes: typo } = useTypoStyles();
   const { classes: shadows } = useShadowStyles();
+  const { classes: buttons } = useButtonStyles();
   const { colorScheme } = useMantineColorScheme();
 
   const theme = useMantineTheme();
@@ -46,8 +47,8 @@ export function SectionWrapper(props: Props) {
         </Title>
         {props.viewAllLink && (
           <Button
-            variant="outline"
             rightIcon={<IconArrowRight size={16} />}
+            className={buttons.secondaryButton}
             size="xs"
             component="a"
             href={props.viewAllLink}

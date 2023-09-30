@@ -16,6 +16,7 @@ import { projects } from '@/data';
 import { SectionWrapper } from '@/components';
 
 import {
+  useButtonStyles,
   useShadowStyles,
   useTransformationnStyles,
   useTypoStyles,
@@ -25,11 +26,12 @@ export function ProjectSpoil() {
   const { classes: shadows } = useShadowStyles();
   const { colorScheme } = useMantineColorScheme();
   const { cx, classes: typo } = useTypoStyles();
+  const { classes: buttons } = useButtonStyles();
   const { classes: transformation } = useTransformationnStyles();
   const theme = useMantineTheme();
 
   return (
-    <SectionWrapper title="My Projects">
+    <SectionWrapper title="My Projects" viewAllLink="/project">
       <ul>
         <Grid gutter="xs" gutterMd="md">
           {projects.slice(0, 4).map((v) => (
@@ -57,7 +59,7 @@ export function ProjectSpoil() {
                   <Group spacing="xs">
                     <Button
                       component="a"
-                      variant="default"
+                      className={buttons.secondaryButton}
                       leftIcon={<IconBrandGithub size={16} />}
                       title="Visit Source Code"
                       styles={{
@@ -70,7 +72,7 @@ export function ProjectSpoil() {
                     </Button>
                     <Button
                       component="a"
-                      variant="default"
+                      className={buttons.secondaryButton}
                       leftIcon={<IconEye size={16} />}
                       styles={{
                         leftIcon: { marginRight: 6 },

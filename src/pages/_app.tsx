@@ -129,7 +129,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <MantineProvider
           // withGlobalStyles
           // withNormalizeCSS
-          theme={{ colorScheme, ...mantineTheme }}
+          theme={{
+            colorScheme,
+            components: { Button: { defaultProps: { radius: 'md' } } },
+            ...mantineTheme,
+          }}
         >
           {getLayout(<Component {...pageProps} />)}
         </MantineProvider>
