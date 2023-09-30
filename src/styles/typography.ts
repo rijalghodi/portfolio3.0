@@ -5,6 +5,10 @@ export const useTypoStyles = createStyles((theme) => {
     theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[5];
   const textColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.dark[4];
+  const brandColor =
+    theme.colorScheme === 'dark'
+      ? theme.colors.brand[5]
+      : theme.colors.brand[8];
   return {
     heading0: {
       fontSize: 32,
@@ -229,8 +233,9 @@ export const useTypoStyles = createStyles((theme) => {
 
     // anchor
     anchorStyle: {
+      color: brandColor,
       '&:hover': {
-        color: theme.colors.brand[6],
+        textDecoration: 'underline',
       },
     },
   };

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { DefaultLayout } from '@/components';
+import { DefaultLayout, HomeTemplate } from '@/components';
 
 export default function HomePage() {
   return (
@@ -8,6 +8,7 @@ export default function HomePage() {
       <Head>
         <title>ZalCode | Home</title>
       </Head>
+      <HomeTemplate />
     </>
   );
 }
