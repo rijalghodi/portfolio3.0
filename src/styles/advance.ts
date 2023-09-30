@@ -11,6 +11,12 @@ export const useShadowStyles = createStyles(() => ({
     boxShadow: '0px 1px 30px 0px rgba(0, 0, 0, 0.01)',
   },
 
+  hoveredDefaultShadow: {
+    boxShadow: '0px 1px 30px 0px rgba(0, 0, 0, 0.01)',
+    '&:hover': {
+      boxShadow: '0px 2px 60px 0px rgba(0, 0, 0, 0.05)',
+    },
+  },
   upShadow: {
     boxShadow: '0px -1px 30px 0px rgba(0, 0, 0, 0.01)',
   },

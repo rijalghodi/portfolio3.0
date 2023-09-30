@@ -50,7 +50,7 @@ export function Header() {
               ? theme.colors.dark[6]
               : theme.colors.neutral[2]
           }
-          className={shadows.defaultShadow}
+          className={shadows.heavyShadow}
         >
           <Flex justify="space-between" align="center">
             <Text className={typo.bodyMd}>ZalCode</Text>

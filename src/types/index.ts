@@ -1,3 +1,4 @@
-export * from './home';
 export * from './menu';
+export * from './project';
+export * from './tech-stack';
 export * from './util';
