@@ -1,8 +1,9 @@
-import { AppShell, Box, Footer, Text, useMantineTheme } from '@mantine/core';
+import { AppShell, Box, Text, useMantineTheme } from '@mantine/core';
 import { Inter } from 'next/font/google';
 
-import { Header } from './parts';
-import { ResponsiveWrapper } from '../../wrapper/ResponsiveWrapper';
+import { ResponsiveWrapper } from '@/components';
+
+import { Footer, Header } from './parts';
 
 type Props = {
   children: React.ReactNode;
@@ -19,6 +20,13 @@ export function DefaultLayout(props: Props) {
           ? theme.colors.dark[7]
           : theme.colors.neutral[4]
       }
+      styles={
+        {
+          // color: `${
+          //   theme.colorScheme === 'dark' ? theme.colors.neutral[3] : 'red'
+          // } !important`,
+        }
+      }
     >
       <ResponsiveWrapper>
         <AppShell
@@ -32,14 +40,13 @@ export function DefaultLayout(props: Props) {
               //     ? theme.colors.dark[6]
               //     : theme.colors.neutral[2],
             },
+            body: {
+              color: 'red !important',
+            },
           }}
           navbarOffsetBreakpoint="sm"
           asideOffsetBreakpoint="sm"
-          footer={
-            <Footer height={60} p="md" unstyled>
-              Application footer
-            </Footer>
-          }
+          footer={<Footer />}
           header={<Header />}
         >
           <Text>Resize app to see responsive navbar in action</Text>

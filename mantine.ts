@@ -75,12 +75,12 @@ export const mantineTheme: MantineThemeOverride = {
       '#8CCFB6', // 9
     ],
     dark: [
-      '#E1E6EA',
-      '#B5BFC8',
-      '#8494A4',
-      '#213E5B',
-      '#213E5B',
-      '#233343',
+      '#E1E6EA', // 0
+      '#B5BFC8', // 1
+      '#8494A4', // 2
+      '#526980', // 3
+      '#354C65', // 4
+      '#233343', // 5
       '#1A2638',
       '#05192D',
       '#041120',
@@ -90,21 +90,4 @@ export const mantineTheme: MantineThemeOverride = {
 
   primaryColor: 'brand',
   primaryShade: 8,
-
-  globalStyles: (theme) => ({
-    '.rootYPaddings': {
-      paddingBottom: '2rem',
-      paddingTop: '2rem',
-    },
-    '.innerYPaddings': {
-      paddingBottom: '0.5rem',
-      paddingTop: '0.5rem',
-    },
-    '.paddings': {
-      padding: theme.spacing.xs,
-    },
-    '.textPrimaryClr': {
-      color: theme.colors.violet[6],
-    },
-  }),
 };

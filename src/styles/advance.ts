@@ -2,17 +2,17 @@ import { createStyles } from '@mantine/core';
 
 export const useShadowStyles = createStyles(() => ({
   heavyShadow: {
-    boxShadow: '0px 4px 40px 0px rgba(0, 0, 0, 0.10)',
+    boxShadow: '0px 4px 40px 0px rgba(0, 0, 0, 0.04)',
     '&:hover': {
-      boxShadow: '0px 6px 80px 0px rgba(0, 0, 0, 0.10)',
+      boxShadow: '0px 6px 80px 0px rgba(0, 0, 0, 0.04)',
     },
   },
   defaultShadow: {
-    boxShadow: '0px 1px 30px 0px rgba(0, 0, 0, 0.05)',
+    boxShadow: '0px 1px 30px 0px rgba(0, 0, 0, 0.01)',
   },
 
   upShadow: {
-    boxShadow: '0px -12px 60px 0px rgba(0, 0, 0, 0.10)',
+    boxShadow: '0px -1px 30px 0px rgba(0, 0, 0, 0.01)',
   },
 }));
 

@@ -16,7 +16,7 @@ import React from 'react';
 
 import { ResponsiveWrapper } from '@/components/ui/wrapper/ResponsiveWrapper';
 
-import { useShadowStyles } from '@/styles';
+import { useShadowStyles, useTypoStyles } from '@/styles';
 
 import { MenuDesktopView } from '..';
 
@@ -27,6 +27,7 @@ export function Header() {
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
 
   const { classes: shadows } = useShadowStyles();
+  const { classes: typo } = useTypoStyles();
 
   return (
     <MantineHeader
@@ -51,7 +52,7 @@ export function Header() {
           className={shadows.defaultShadow}
         >
           <Flex justify="space-between" align="center">
-            <Text>ZalCoder</Text>
+            <Text className={typo.bodyMd}>ZalCode</Text>
             <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
               <MenuDesktopView />
             </MediaQuery>

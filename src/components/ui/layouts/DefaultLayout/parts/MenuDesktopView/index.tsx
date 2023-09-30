@@ -5,6 +5,8 @@ import React from 'react';
 
 import { menus } from '@/data';
 
+import { useTypoStyles } from '@/styles';
+
 import { useStyles } from './styles';
 
 type Props = {
@@ -21,6 +23,7 @@ export function MenuDesktopView(props: Props) {
   }, [router.pathname]);
 
   const { classes, cx } = useStyles();
+  const { classes: typo } = useTypoStyles();
 
   return (
     <nav className={cx(props.className, classes.nav)}>
@@ -31,8 +34,8 @@ export function MenuDesktopView(props: Props) {
               key={menu.link}
               className={
                 activeLink?.link === menu.link
-                  ? cx(classes.oneMenu, classes.activeMenu)
-                  : classes.oneMenu
+                  ? cx(typo.bodyMd, classes.oneMenu, classes.activeMenu)
+                  : cx(typo.bodyMd, classes.oneMenu)
               }
             >
               <Link key={i} href={menu.link}>

@@ -127,8 +127,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         toggleColorScheme={toggleColorScheme}
       >
         <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
+          // withGlobalStyles
+          // withNormalizeCSS
           theme={{ colorScheme, ...mantineTheme }}
         >
           {getLayout(<Component {...pageProps} />)}
