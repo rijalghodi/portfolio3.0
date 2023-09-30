@@ -1,24 +1,58 @@
 {
   "name": "portfolio3.0",
+  "description": "Portfolio 3.0",
+  "author": "Rijal Ghodi <rijalghodi10@gmail.com>",
   "version": "0.1.0",
   "private": true,
+  "license": "ISC",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint src --fix && yarn format",
+    "format": "prettier -w .",
+    "typecheck": "tsc --noEmit --incremental false",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
+    "@mantine/core": "6.0.21",
+    "@mantine/hooks": "6.0.21",
+    "@mantine/next": "^6.0.21",
+    "@tabler/icons-react": "^2.37.0",
+    "next": "latest",
+    "next-progress": "^2.3.1",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "xstate": "^4.38.2",
+    "zustand": "^4.4.1",
+    "zustand-middleware-xstate": "2.0.0"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
     "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "latest",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0 --fix",
+      "prettier -w"
+    ],
+    "**/*.{json,css,scss,md}": [
+      "prettier -w"
+    ]
   }
 }
