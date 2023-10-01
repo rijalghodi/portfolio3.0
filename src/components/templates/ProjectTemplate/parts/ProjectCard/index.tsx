@@ -8,6 +8,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconBrandGithub, IconEye } from '@tabler/icons-react';
+import Link from 'next/link';
 import React from 'react';
 
 import {
@@ -37,40 +38,59 @@ export function ProjectCard(props: Project) {
       }
       p="sm"
     >
-      <Title order={2} className={typo.heading4} mb="sm">
-        {props.name}
-      </Title>
+      {props.articleLink ? (
+        <Link href={props.articleLink}>
+          <Title
+            order={2}
+            className={typo.heading4}
+            mb="sm"
+            sx={{ '&:hover': { color: theme.colors.brand[7] } }}
+          >
+            {props.name}
+          </Title>
+        </Link>
+      ) : (
+        <Title order={2} className={typo.heading4} mb="sm">
+          {props.name}
+        </Title>
+      )}
       <Text className={typo.bodySm} mb="sm">
         {props.shortDesc}
       </Text>
 
       <Group spacing="xs">
-        <Button
-          component="a"
-          className={buttons.secondaryButton}
-          leftIcon={<IconBrandGithub size={16} />}
-          title="Visit Source Code"
-          styles={{
-            leftIcon: { marginRight: 6 },
-          }}
-          radius="sm"
-          size="xs"
-        >
-          Code
-        </Button>
-        <Button
-          component="a"
-          className={buttons.secondaryButton}
-          leftIcon={<IconEye size={16} />}
-          styles={{
-            leftIcon: { marginRight: 6 },
-          }}
-          title="Visit Demo Page"
-          radius="sm"
-          size="xs"
-        >
-          Demo
-        </Button>
+        {props.githubLink && (
+          <Button
+            component="a"
+            href={props.githubLink}
+            className={buttons.secondaryButton}
+            leftIcon={<IconBrandGithub size={16} />}
+            title="Visit Source Code"
+            styles={{
+              leftIcon: { marginRight: 6 },
+            }}
+            radius="sm"
+            size="xs"
+          >
+            Code
+          </Button>
+        )}
+        {props.demoLink && (
+          <Button
+            component="a"
+            href={props.demoLink}
+            className={buttons.secondaryButton}
+            leftIcon={<IconEye size={16} />}
+            styles={{
+              leftIcon: { marginRight: 6 },
+            }}
+            title="Visit Demo Page"
+            radius="sm"
+            size="xs"
+          >
+            Demo
+          </Button>
+        )}
       </Group>
     </Paper>
   );
