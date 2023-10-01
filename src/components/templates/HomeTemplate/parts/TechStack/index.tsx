@@ -47,13 +47,13 @@ export function TechStack() {
                     {v.category}
                   </Title>
                   <ul>
-                    <Group spacing="sm">
+                    <Group spacing="xs">
                       {v.techs.map((tech, i) => (
                         <Badge
                           key={i}
                           component="li"
                           py={12}
-                          px={16}
+                          px={12}
                           variant="dot"
                           color={tech.color}
                           size="md"

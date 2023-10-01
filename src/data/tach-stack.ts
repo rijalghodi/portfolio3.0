@@ -8,7 +8,32 @@ export const techStacks: TechStack[] = [
       {
         name: 'NextJS',
         level: 'advance',
-        color: '#FFD7DC',
+        color: 'dark',
+      },
+      {
+        name: 'NuxtJS',
+        level: 'intermediete',
+        color: 'green',
+      },
+      {
+        name: 'React',
+        level: 'advance',
+        color: 'blue',
+      },
+      {
+        name: 'Vue',
+        level: 'advance',
+        color: 'lime',
+      },
+      {
+        name: 'Mantine UI',
+        level: 'advance',
+        color: 'blue',
+      },
+      {
+        name: 'Tailwind',
+        level: 'advance',
+        color: 'indigo',
       },
     ],
   },
@@ -19,8 +44,11 @@ export const techStacks: TechStack[] = [
       {
         name: 'NestJS',
         level: 'advance',
-        color: '#FFD7DC',
+        color: 'red',
       },
+      { name: 'ExpressJS', level: 'advance', color: 'gray' },
+      { name: 'PostgreSQL', level: 'advance', color: 'teal' },
+      { name: 'SQLite', level: 'advance', color: 'teal' },
     ],
   },
   // Others
@@ -30,12 +58,17 @@ export const techStacks: TechStack[] = [
       {
         name: 'Git',
         level: 'advance',
-        color: '#FFD7DC',
+        color: 'orange',
+      },
+      {
+        name: 'CI/CD',
+        level: 'advance',
+        color: 'dark',
       },
       {
         name: 'Docker',
         level: 'advance',
-        color: '',
+        color: 'blue',
       },
     ],
   },
