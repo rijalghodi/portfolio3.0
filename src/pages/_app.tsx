@@ -78,7 +78,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           // withNormalizeCSS
           theme={{
             colorScheme,
-            components: { Button: { defaultProps: { radius: 'md' } } },
             ...mantineTheme,
           }}
         >
