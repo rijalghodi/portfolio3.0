@@ -12,7 +12,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconSun } from '@tabler/icons-react';
+import { IconMoon, IconSun } from '@tabler/icons-react';
 import React from 'react';
 
 import { ZKeyLogo } from '@/components';
@@ -65,7 +65,11 @@ export function Header() {
 
             <Group spacing="sm">
               <ActionIcon onClick={() => toggleColorScheme()}>
-                <IconSun />
+                {colorScheme === 'dark' ? (
+                  <IconSun size={20} />
+                ) : (
+                  <IconMoon size={18} />
+                )}
               </ActionIcon>
               <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                 <Box>
