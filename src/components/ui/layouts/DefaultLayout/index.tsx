@@ -53,7 +53,7 @@ export function DefaultLayout(props: Props) {
               onClick={() => router.back()}
               mb={12}
             >
-              Kembali
+              Back
             </Button>
           )}
           {props.children}
