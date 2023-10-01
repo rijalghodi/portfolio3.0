@@ -1,9 +1,10 @@
 import { Button } from '@mantine/core';
+import { IconArrowUpRight, IconSquareRoundedPlus } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import { menus } from '@/data';
+import { companyMailToLink, menus } from '@/data';
 
 import { useTypoStyles } from '@/styles';
 
@@ -38,14 +39,25 @@ export function MenuDesktopView(props: Props) {
                   : cx(typo.bodyMd, classes.oneMenu)
               }
             >
-              <Link key={i} href={menu.link}>
+              <Link
+                key={i}
+                href={menu.link}
+                target={menu.openInNewTab ? '_blank' : undefined}
+              >
                 {menu.title}
               </Link>
+              {menu.openInNewTab && <IconArrowUpRight size={14} />}
             </li>
           );
         })}
       </ul>
-      <Button>Hire Me</Button>
+      <Button
+        leftIcon={<IconSquareRoundedPlus size={16} />}
+        component="a"
+        href={companyMailToLink}
+      >
+        Hire Me
+      </Button>
     </nav>
   );
 }

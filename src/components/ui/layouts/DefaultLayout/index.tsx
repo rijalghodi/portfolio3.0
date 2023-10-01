@@ -43,7 +43,7 @@ export function DefaultLayout(props: Props) {
           footer={<Footer />}
           header={<Header />}
         >
-          {props.enableBack ? (
+          {props.enableBack && (
             <Button
               variant="subtle"
               color="gray"
@@ -55,8 +55,6 @@ export function DefaultLayout(props: Props) {
             >
               Kembali
             </Button>
-          ) : (
-            'Hello'
           )}
           {props.children}
         </AppShell>

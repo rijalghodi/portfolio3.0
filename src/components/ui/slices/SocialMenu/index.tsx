@@ -8,7 +8,7 @@ import {
 } from '@mantine/core';
 import React from 'react';
 
-import { companyFbLink, companyIgLink, companyTiktokLink } from '@/data';
+import { comapnyLinkedIn, companyGithubLink, companyIgLink } from '@/data';
 
 import { useTransformationnStyles } from '@/styles';
 
@@ -33,7 +33,7 @@ export function SocialMenu(props: Props) {
         variant="subtle"
         component="a"
         target="_blank"
-        href={companyFbLink}
+        href={companyGithubLink}
         size={size}
         sx={() => ({
           color: color,
@@ -44,7 +44,25 @@ export function SocialMenu(props: Props) {
         })}
         className={transforms.hoverUpTransformation}
       >
-        <Icon icon="ic:round-facebook" width="75%" />
+        <Icon icon="mdi:github" color={color} width="75%" />
+      </ActionIcon>
+      <ActionIcon
+        color={color}
+        radius="xl"
+        variant="subtle"
+        component="a"
+        target="_blank"
+        href={comapnyLinkedIn}
+        size={size}
+        sx={() => ({
+          '&:hover': {
+            backgroundColor: hoverBgColor,
+            color: hoverColor,
+          },
+        })}
+        className={transforms.hoverUpTransformation}
+      >
+        <Icon icon="mdi:linkedin" width="75%" color={color} />
       </ActionIcon>
       <ActionIcon
         color={color}
@@ -63,24 +81,6 @@ export function SocialMenu(props: Props) {
         className={transforms.hoverUpTransformation}
       >
         <Icon icon="mdi:instagram" width="75%" color={color} />
-      </ActionIcon>
-      <ActionIcon
-        color={color}
-        radius="xl"
-        variant="subtle"
-        component="a"
-        target="_blank"
-        href={companyTiktokLink}
-        size={size}
-        sx={() => ({
-          '&:hover': {
-            backgroundColor: hoverBgColor,
-            color: hoverColor,
-          },
-        })}
-        className={transforms.hoverUpTransformation}
-      >
-        <Icon icon="ic:baseline-tiktok" width="75%" color={color} />
       </ActionIcon>
     </Group>
   );

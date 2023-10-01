@@ -14,11 +14,8 @@ export const menus: Menu[] = [
     link: '/blog',
   },
   {
-    title: 'Contact',
-    link: '/contact',
-  },
-  {
     title: 'Github',
     link: 'https://github.com/rijalghodi',
+    openInNewTab: true,
   },
 ];

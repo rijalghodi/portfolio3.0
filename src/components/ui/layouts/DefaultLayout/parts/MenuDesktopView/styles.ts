@@ -14,6 +14,9 @@ export const useStyles = createStyles((theme) => ({
     gap: theme.spacing.lg,
   },
   oneMenu: {
+    display: 'flex',
+    gap: 4,
+    alignItems: 'center',
     '&:hover': {
       color: theme.colors.brand[7],
     },
