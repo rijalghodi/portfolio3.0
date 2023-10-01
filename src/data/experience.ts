@@ -8,6 +8,7 @@ export const experiences: Experience[] = [
     experienceCategory: 'Full Time',
     startDate: 'Dec 2022',
     endDate: 'Now',
+    logo: '/companies/optimap.svg',
     shortDesc:
       'Optimap is company that help other companies to optimize their map digitally',
   },

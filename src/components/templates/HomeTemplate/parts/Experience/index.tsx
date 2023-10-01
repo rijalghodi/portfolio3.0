@@ -48,15 +48,17 @@ export function Experience() {
                   }
                   p="sm"
                 >
-                  <Image
-                    src={v.logo ?? '/next.svg'}
-                    alt="company logo"
-                    width={50}
-                    height={50}
-                    radius={1000}
-                    fit="contain"
-                  />
-                  <Box mb="xs">
+                  {v.logo && (
+                    <Image
+                      src={v.logo}
+                      alt="company logo"
+                      width={40}
+                      height={40}
+                      radius={1000}
+                      fit="contain"
+                    />
+                  )}
+                  <Box my="xs">
                     <Title order={2} className={typo.heading4} mb={8}>
                       {v.position}
                     </Title>

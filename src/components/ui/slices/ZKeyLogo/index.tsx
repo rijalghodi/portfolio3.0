@@ -2,8 +2,8 @@ import { useMantineColorScheme } from '@mantine/core';
 import Image from 'next/image';
 import React from 'react';
 
-import zKeyLogoDefault from '~/zkey-logo-default.webp';
-import zKeyLogoNoBg from '~/zkey-logo-no-bg.webp';
+import zKeyLogoDefault from '~/zkey-logo-default.svg';
+import zKeyLogoNoBg from '~/zkey-logo-no-bg.svg';
 
 type Props = {
   width?: number | `${number}` | undefined;
