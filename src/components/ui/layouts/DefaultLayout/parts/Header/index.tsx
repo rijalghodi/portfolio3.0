@@ -15,6 +15,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconSun } from '@tabler/icons-react';
 import React from 'react';
 
+import { ZKeyLogo } from '@/components';
 import { ResponsiveWrapper } from '@/components/ui/wrapper/ResponsiveWrapper';
 
 import { useShadowStyles, useTypoStyles } from '@/styles';
@@ -54,7 +55,10 @@ export function Header() {
           className={shadows.heavyShadow}
         >
           <Flex justify="space-between" align="center">
-            <Text className={typo.bodyMd}>ZalCode</Text>
+            <Group spacing={12}>
+              <ZKeyLogo width={36} height={36} />
+              <Text className={typo.heading5}>Zal Code</Text>
+            </Group>
             <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
               <MenuDesktopView />
             </MediaQuery>

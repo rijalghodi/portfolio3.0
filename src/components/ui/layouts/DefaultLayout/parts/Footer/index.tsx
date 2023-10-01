@@ -9,7 +9,7 @@ import {
 } from '@mantine/core';
 import React from 'react';
 
-import { CallToActionButton, SocialMenu } from '@/components';
+import { CallToActionButton, SocialMenu, ZKeyLogo } from '@/components';
 
 import { useShadowStyles, useTypoStyles } from '@/styles';
 
@@ -36,7 +36,8 @@ export function Footer() {
         }}
       >
         <Stack spacing="lg" maw={400} mx="auto">
-          <Stack spacing="md">
+          <Stack spacing="md" align="center">
+            <ZKeyLogo width={44} height={44} />
             <Text ta="center" className={typo.heading3}>
               Let's Work Together
             </Text>
