@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>ZalCode | Home</title>
+        <title>Rijal Ghodi | Home</title>
       </Head>
       <HomeTemplate />
     </>

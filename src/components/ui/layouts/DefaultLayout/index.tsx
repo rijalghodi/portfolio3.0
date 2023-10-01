@@ -1,5 +1,7 @@
-import { AppShell, Box, useMantineTheme } from '@mantine/core';
+import { AppShell, Box, Button, useMantineTheme } from '@mantine/core';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { Inter } from 'next/font/google';
+import { useRouter } from 'next/router';
 
 import { ResponsiveWrapper } from '@/components';
 
@@ -7,12 +9,14 @@ import { Footer, Header } from './parts';
 
 type Props = {
   children: React.ReactNode;
+  enableBack?: boolean;
 };
 
 const inter = Inter({ subsets: ['latin'] });
 
 export function DefaultLayout(props: Props) {
   const theme = useMantineTheme();
+  const router = useRouter();
   return (
     <Box
       bg={
@@ -31,6 +35,7 @@ export function DefaultLayout(props: Props) {
               paddingLeft: '0px !important',
               paddingRight: '0px !important',
               paddingBottom: 64,
+              paddingTop: 90,
             },
           }}
           navbarOffsetBreakpoint="sm"
@@ -38,6 +43,21 @@ export function DefaultLayout(props: Props) {
           footer={<Footer />}
           header={<Header />}
         >
+          {props.enableBack ? (
+            <Button
+              variant="subtle"
+              color="gray"
+              // className={buttons.secondaryButton}
+              leftIcon={<IconArrowLeft size={14} />}
+              size="xs"
+              onClick={() => router.back()}
+              mb={12}
+            >
+              Kembali
+            </Button>
+          ) : (
+            'Hello'
+          )}
           {props.children}
         </AppShell>
       </ResponsiveWrapper>

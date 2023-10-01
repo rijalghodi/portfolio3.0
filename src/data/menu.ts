@@ -6,8 +6,8 @@ export const menus: Menu[] = [
     link: '/',
   },
   {
-    title: 'Projects',
-    link: '/projec',
+    title: 'Project',
+    link: '/project',
   },
   {
     title: 'Blog',

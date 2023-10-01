@@ -1,17 +1,10 @@
-import {
-  Button,
-  Group,
-  Paper,
-  Title,
-  TitleOrder,
-  useMantineColorScheme,
-  useMantineTheme,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Button, Group, Title, TitleOrder } from '@mantine/core';
 import { IconArrowRight } from '@tabler/icons-react';
 import React from 'react';
 
-import { useButtonStyles, useShadowStyles, useTypoStyles } from '@/styles';
+import { useButtonStyles, useTypoStyles } from '@/styles';
+
+import { PaperWrapper } from '../PaperWrapper';
 type Props = {
   title: string;
   titleOrder?: TitleOrder;
@@ -21,23 +14,11 @@ type Props = {
   children: React.ReactNode;
 };
 export function SectionWrapper(props: Props) {
-  const xSmallScreen = useMediaQuery('(max-width: 576px)');
   const { classes: typo } = useTypoStyles();
-  const { classes: shadows } = useShadowStyles();
   const { classes: buttons } = useButtonStyles();
-  const { colorScheme } = useMantineColorScheme();
 
-  const theme = useMantineTheme();
   return (
-    <Paper
-      radius="md"
-      py="xl"
-      px={xSmallScreen ? 'xs' : 'xl'}
-      className={shadows.defaultShadow}
-      bg={
-        colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[2]
-      }
-    >
+    <PaperWrapper>
       <Group position="apart" mb="md">
         <Title
           className={props.titleClassName ?? typo.heading2}
@@ -70,6 +51,6 @@ export function SectionWrapper(props: Props) {
         )}
       </Group>
       {props.children}
-    </Paper>
+    </PaperWrapper>
   );
 }
