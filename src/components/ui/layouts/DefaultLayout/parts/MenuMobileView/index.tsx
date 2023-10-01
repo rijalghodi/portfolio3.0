@@ -44,11 +44,11 @@ export function MenuMobileView(props: DrawerProps) {
           backgroundColor: 'transparent',
         },
         inner: {
-          top: 80,
+          top: 90,
           right: theme.spacing.sm,
         },
         content: {
-          borderRadius: '20px !important',
+          borderRadius: '16px !important',
           padding: theme.spacing.md,
           backgroundColor:
             colorScheme === 'dark'

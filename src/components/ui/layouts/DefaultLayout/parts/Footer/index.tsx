@@ -39,7 +39,7 @@ export function Footer() {
       >
         <Stack spacing="lg" maw={400} mx="auto">
           <Stack spacing="md" align="center">
-            <ZKeyLogo width={56} height={56} />
+            <ZKeyLogo width={48} height={48} />
             <Text ta="center" className={typo.heading3}>
               Let's Work Together
             </Text>

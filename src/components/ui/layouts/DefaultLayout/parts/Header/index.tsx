@@ -58,7 +58,7 @@ export function Header() {
         >
           <Flex justify="space-between" align="center">
             <Group spacing={12}>
-              <ZKeyLogo width={36} height={36} />
+              <ZKeyLogo width={32} height={32} />
               <Text className={typo.heading5}>Zal Code</Text>
             </Group>
             <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
