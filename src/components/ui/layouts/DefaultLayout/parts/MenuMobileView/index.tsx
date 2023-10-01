@@ -68,6 +68,7 @@ export function MenuMobileView(props: DrawerProps) {
                     ? cx(typo.bodyLg, classes.oneMenu, classes.activeMenu)
                     : cx(typo.bodyLg, classes.oneMenu)
                 }
+                onClick={props.onClose}
               >
                 <Link
                   key={i}

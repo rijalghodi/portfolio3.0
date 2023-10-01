@@ -47,7 +47,6 @@ export function DefaultLayout(props: Props) {
             <Button
               variant="subtle"
               color="gray"
-              // className={buttons.secondaryButton}
               leftIcon={<IconArrowLeft size={14} />}
               size="xs"
               onClick={() => router.back()}

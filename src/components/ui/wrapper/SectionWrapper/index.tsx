@@ -1,5 +1,6 @@
 import { Button, Group, Title, TitleOrder } from '@mantine/core';
 import { IconArrowRight } from '@tabler/icons-react';
+import Link from 'next/link';
 import React from 'react';
 
 import { useButtonStyles, useTypoStyles } from '@/styles';
@@ -27,27 +28,28 @@ export function SectionWrapper(props: Props) {
           {props.title}
         </Title>
         {props.viewAllLink && (
-          <Button
-            rightIcon={<IconArrowRight size={16} />}
-            className={buttons.secondaryButton}
-            size="xs"
-            component="a"
-            href={props.viewAllLink}
-            styles={{
-              rightIcon: {
-                transition: 'transform 0.3s ease',
-                marginLeft: 4,
-                marginRight: 4,
-              },
-              root: {
-                '&:hover .mantine-Button-rightIcon': {
-                  transform: 'translateX(4px)',
+          <Link href={props.viewAllLink}>
+            <Button
+              rightIcon={<IconArrowRight size={16} />}
+              className={buttons.secondaryButton}
+              size="xs"
+              component="div"
+              styles={{
+                rightIcon: {
+                  transition: 'transform 0.3s ease',
+                  marginLeft: 4,
+                  marginRight: 4,
                 },
-              },
-            }}
-          >
-            View All
-          </Button>
+                root: {
+                  '&:hover .mantine-Button-rightIcon': {
+                    transform: 'translateX(4px)',
+                  },
+                },
+              }}
+            >
+              View All
+            </Button>
+          </Link>
         )}
       </Group>
       {props.children}
