@@ -2,6 +2,12 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    name: 'Portfolio 3.0',
+    shortDesc: 'My portfolio build using nextjs & mantine UI',
+    demoLink: 'https://zalcode.my.id',
+    githubLink: 'https://github.com/rijalghodi/portfolio3.0',
+  },
+  {
     name: 'Dapobud Landing Page',
     shortDesc: 'A web to overview the indonesian cultures documentation',
     demoLink: 'https://dapobud.kemdikbud.optimap.id/',
