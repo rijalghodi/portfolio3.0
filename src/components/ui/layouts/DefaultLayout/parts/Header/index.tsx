@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Box,
   Burger,
   Flex,
   Group,
@@ -18,7 +19,7 @@ import { ResponsiveWrapper } from '@/components/ui/wrapper/ResponsiveWrapper';
 
 import { useShadowStyles, useTypoStyles } from '@/styles';
 
-import { MenuDesktopView } from '..';
+import { MenuDesktopView, MenuMobileView } from '..';
 
 export function Header() {
   const [opened, action] = useDisclosure(false);
@@ -58,17 +59,20 @@ export function Header() {
               <MenuDesktopView />
             </MediaQuery>
 
-            <Group>
+            <Group spacing="sm">
               <ActionIcon onClick={() => toggleColorScheme()}>
                 <IconSun />
               </ActionIcon>
               <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-                <Burger
-                  opened={opened}
-                  onClick={() => action.toggle()}
-                  size="sm"
-                  color={theme.colors.gray[6]}
-                />
+                <Box>
+                  <Burger
+                    opened={opened}
+                    onClick={action.toggle}
+                    size="sm"
+                    color={theme.colors.gray[6]}
+                  />
+                  <MenuMobileView opened={opened} onClose={action.toggle} />
+                </Box>
               </MediaQuery>
             </Group>
           </Flex>
