@@ -2,8 +2,8 @@ import { useMantineColorScheme } from '@mantine/core';
 import Image from 'next/image';
 import React from 'react';
 
-import zKeyLogoDefault from '~/zkey-logo-default.svg';
-import zKeyLogoNoBg from '~/zkey-logo-no-bg.svg';
+import logoDefault from '~/zslice-logo-default.svg';
+import logoNoBg from '~/zslice-logo-no-bg.svg';
 
 type Props = {
   width?: number | `${number}` | undefined;
@@ -14,7 +14,7 @@ export function ZKeyLogo(props: Props) {
   const { colorScheme } = useMantineColorScheme();
   return (
     <Image
-      src={colorScheme === 'dark' ? zKeyLogoNoBg : zKeyLogoDefault}
+      src={colorScheme === 'dark' ? logoNoBg : logoDefault}
       alt="Logo"
       width={36}
       height={36}
