@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     "Welcome! This is Rijal Ghodi's story of pursuing a dream to become a tech expert. Here, he is sharing his knowledge and experience on code, projects, and life.";
   const url = `${process.env.NEXT_PUBLIC_DEPLOY_URL}`;
   const favicon = '/favicon.ico';
-  const metaImage = '/meta-image.jpg';
+  const metaImage = `${process.env.NEXT_PUBLIC_DEPLOY_URL}/meta-image.jpg`;
 
   return (
     <>
