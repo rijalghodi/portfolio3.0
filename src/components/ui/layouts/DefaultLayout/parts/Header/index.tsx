@@ -27,6 +27,10 @@ export function Header() {
 
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
 
+  const handleToggleColorScheme = () => {
+    toggleColorScheme();
+  };
+
   const { classes: typo } = useTypoStyles();
 
   return (
@@ -64,7 +68,7 @@ export function Header() {
             </MediaQuery>
 
             <Group spacing="sm">
-              <ActionIcon onClick={() => toggleColorScheme()}>
+              <ActionIcon onClick={handleToggleColorScheme}>
                 {colorScheme === 'dark' ? (
                   <IconSun size={20} />
                 ) : (

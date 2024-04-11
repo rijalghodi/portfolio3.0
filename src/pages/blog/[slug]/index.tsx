@@ -1,17 +1,18 @@
 // app/blog/[slug]/page.tsx
 
-import { Box, Group, Stack, Title } from '@mantine/core';
+import { Box, Group, Stack, Title, useMantineColorScheme } from '@mantine/core';
 import { Text } from '@mantine/core';
 import bookmarkPlugin from '@notion-render/bookmark-plugin';
 import { NotionRenderer } from '@notion-render/client';
 //Plugins
 import hljsPlugin from '@notion-render/hljs-plugin';
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { IconClock } from '@tabler/icons-react';
 import dayjs from 'dayjs';
+import hljs from 'highlight.js';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { DefaultLayout } from '@/components';
 import Breadcrumbs from '@/components/ui/layouts/DefaultLayout/parts/Breadcrumbs';
@@ -29,16 +30,27 @@ type Params = {
 };
 
 type Props = {
-  data: PageObjectResponse | undefined;
+  data: {
+    title?: string;
+    last_edited_time?: string;
+  };
   html: string;
 };
 
 export default function BlogDetailPage({ data, html }: Props) {
   const { classes: typo } = useTypoStyles();
+  const { colorScheme } = useMantineColorScheme();
 
-  const title = (data?.properties.title as any).title
-    ?.map((v: any) => v.plain_text)
-    .join(' ');
+  useEffect(() => {
+    const themeLink = document.querySelector('#highlight-theme-link');
+    if (colorScheme === 'dark') {
+      themeLink?.setAttribute('href', 'obsidian.css');
+    } else {
+      themeLink?.setAttribute('href', 'github.css');
+    }
+
+    hljs.highlightAll();
+  }, [colorScheme]);
 
   if (!data) {
     notFound();
@@ -47,7 +59,7 @@ export default function BlogDetailPage({ data, html }: Props) {
   return (
     <>
       <Head>
-        <title> {title} | Rijal Ghodi</title>
+        <title>{data?.title} | Rijal Ghodi</title>
       </Head>
       <Stack mt="md" spacing="lg">
         <Breadcrumbs
@@ -65,7 +77,7 @@ export default function BlogDetailPage({ data, html }: Props) {
         <Stack spacing="sm">
           <Box>
             <Title order={1} mb="xs">
-              {title}
+              {data.title}
             </Title>
             <Group spacing={8}>
               <IconClock size={14} />
@@ -74,7 +86,10 @@ export default function BlogDetailPage({ data, html }: Props) {
               </Text>
             </Group>
           </Box>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <div
+            className="notion-render"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
         </Stack>
       </Stack>
     </>
@@ -125,7 +140,12 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 
   return {
     props: {
-      data,
+      data: {
+        title: (data?.properties.title as any).title
+          ?.map((v: any) => v.plain_text)
+          .join(' '),
+        last_edited_time: data?.last_edited_time ?? '',
+      },
       html,
     },
     revalidate: 60 * 20, // Re-generate page every 20 minutes
