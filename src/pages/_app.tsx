@@ -5,6 +5,7 @@ import {
 } from '@mantine/core';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import NextProgress from 'next-progress';
 import React from 'react';
@@ -20,6 +21,11 @@ export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout | any;
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: React.ReactElement) => page);
@@ -69,6 +75,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+
       <ColorSchemeProvider
         colorScheme={colorScheme}
         toggleColorScheme={toggleColorScheme}
@@ -77,8 +84,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           // withGlobalStyles
           // withNormalizeCSS
           theme={{
-            colorScheme,
             ...mantineTheme,
+            colorScheme,
+            fontFamily: inter.style.fontFamily,
           }}
         >
           {getLayout(<Component {...pageProps} />)}

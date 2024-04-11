@@ -31,7 +31,7 @@ export function SectionWrapper(props: Props) {
           <Link href={props.viewAllLink}>
             <Button
               rightIcon={<IconArrowRight size={16} />}
-              className={buttons.secondaryButton}
+              className={buttons.tertiaryButton}
               size="xs"
               component="div"
               styles={{

@@ -1,5 +1,9 @@
 import { Button, CopyButton, Group, GroupProps } from '@mantine/core';
-import { IconCopy, IconSquareRoundedPlus } from '@tabler/icons-react';
+import {
+  IconCheck,
+  IconCopy,
+  IconSquareRoundedPlus,
+} from '@tabler/icons-react';
 import React from 'react';
 
 import { companyEmail, companyMailToLink } from '@/data';
@@ -20,11 +24,11 @@ export function CallToActionButton(props: GroupProps) {
       <CopyButton value={companyEmail}>
         {({ copied, copy }) => (
           <Button
-            leftIcon={<IconCopy size={16} />}
+            leftIcon={copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
             className={buttons.secondaryButton}
             onClick={copy}
           >
-            {copied ? 'Copied!' : 'Copy Email'}
+            Copy Email
           </Button>
         )}
       </CopyButton>

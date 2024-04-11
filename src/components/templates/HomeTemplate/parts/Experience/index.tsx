@@ -16,17 +16,11 @@ import { experiences } from '@/data';
 
 import { SectionWrapper } from '@/components';
 
-import {
-  useShadowStyles,
-  useTransformationnStyles,
-  useTypoStyles,
-} from '@/styles';
+import { useTypoStyles } from '@/styles';
 
 export function Experience() {
-  const { classes: shadows } = useShadowStyles();
   const { colorScheme } = useMantineColorScheme();
-  const { cx, classes: typo } = useTypoStyles();
-  const { classes: transformation } = useTransformationnStyles();
+  const { classes: typo } = useTypoStyles();
   const theme = useMantineTheme();
 
   return (
@@ -37,16 +31,12 @@ export function Experience() {
             <Grid.Col key={i} span={12} sm={6}>
               <li>
                 <Paper
-                  className={cx(
-                    transformation.hoverUpTransformation,
-                    shadows.hoveredDefaultShadow,
-                  )}
                   bg={
                     colorScheme === 'dark'
-                      ? theme.colors.dark[5]
+                      ? theme.colors.dark[6]
                       : theme.colors.neutral[1]
                   }
-                  p="sm"
+                  p="md"
                 >
                   {v.logo && (
                     <Image

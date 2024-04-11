@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core';
+import { Button, List } from '@mantine/core';
 import { IconArrowUpRight, IconSquareRoundedPlus } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -28,10 +28,10 @@ export function MenuDesktopView(props: Props) {
 
   return (
     <nav className={cx(props.className, classes.nav)}>
-      <ul className={classes.menuUnorderedList}>
+      <List className={classes.menuUnorderedList}>
         {menus.map((menu, i) => {
           return (
-            <li
+            <List.Item
               key={menu.link}
               className={
                 activeLink?.link === menu.link
@@ -44,13 +44,13 @@ export function MenuDesktopView(props: Props) {
                 href={menu.link}
                 target={menu.openInNewTab ? '_blank' : undefined}
               >
-                {menu.title}
+                <span>{menu.title}</span>
+                {menu.openInNewTab && <IconArrowUpRight size={14} />}
               </Link>
-              {menu.openInNewTab && <IconArrowUpRight size={14} />}
-            </li>
+            </List.Item>
           );
         })}
-      </ul>
+      </List>
       <Button
         leftIcon={<IconSquareRoundedPlus size={16} />}
         component="a"

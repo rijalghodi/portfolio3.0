@@ -11,32 +11,21 @@ import { IconBrandGithub, IconEye } from '@tabler/icons-react';
 import Link from 'next/link';
 import React from 'react';
 
-import {
-  useButtonStyles,
-  useShadowStyles,
-  useTransformationnStyles,
-  useTypoStyles,
-} from '@/styles';
+import { useButtonStyles, useTypoStyles } from '@/styles';
 
 import { Project } from '@/types';
 
 export function ProjectCard(props: Project) {
-  const { classes: shadows } = useShadowStyles();
   const { colorScheme } = useMantineColorScheme();
-  const { cx, classes: typo } = useTypoStyles();
+  const { classes: typo } = useTypoStyles();
   const { classes: buttons } = useButtonStyles();
-  const { classes: transformation } = useTransformationnStyles();
   const theme = useMantineTheme();
   return (
     <Paper
-      className={cx(
-        transformation.hoverUpTransformation,
-        shadows.hoveredDefaultShadow,
-      )}
       bg={
-        colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.neutral[1]
+        colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[1]
       }
-      p="sm"
+      p="md"
     >
       {props.articleLink ? (
         <Link href={props.articleLink}>

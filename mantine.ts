@@ -2,7 +2,6 @@ import { MantineThemeOverride } from '@mantine/core';
 
 export const mantineTheme: MantineThemeOverride = {
   // fontFamily: 'Cooming soon, cursive',
-  fontFamily: 'Inter, sans-serif',
   spacing: { xs: '12px', sm: '16px', md: '24px', lg: '32px', xl: '40px' },
   radius: { xs: '12px', sm: '16px', md: '24px', lg: '32px', xl: '40px' },
 
@@ -12,6 +11,20 @@ export const mantineTheme: MantineThemeOverride = {
     md: '62em',
     lg: '75em',
     xl: '88em',
+  },
+
+  // shadows: {
+  //   xs: '0px 2px 4px 0px rgba(0, 0, 0, 0.05)',
+  //   sm: '0px 2px 8px 0px rgba(0, 0, 0, 0.05',
+  //   md: '0px 4px 18px 0px rgba(0, 0, 0, .1)',
+  //   xl: '0px 8px 24px 0px rgba(0, 0, 0, .1)',
+  // },
+
+  shadows: {
+    xs: '0px 2px 4px 0px rgba(0, 0, 0, 0.05)',
+    sm: '0px 2px 8px 0px rgba(0, 0, 0, 0.05)',
+    md: '0px 4px 18px 0px rgba(0, 0, 0, .1)',
+    xl: '0px 8px 24px 0px rgba(0, 0, 0, .1)',
   },
   components: {
     Container: {
@@ -35,7 +48,6 @@ export const mantineTheme: MantineThemeOverride = {
   },
   headings: {
     // properties for all headings\
-    fontFamily: 'Inter, sans-serif',
     fontWeight: '600px',
 
     // properties for individual headings, all of them are optional

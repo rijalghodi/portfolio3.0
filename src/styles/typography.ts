@@ -15,6 +15,7 @@ export const useTypoStyles = createStyles((theme) => {
       color: titleColor,
       fontWeight: 700,
       lineHeight: 1.3,
+      fontFamily: theme.fontFamily,
       [theme.fn.largerThan('sm')]: {
         fontSize: 44,
         fontWeight: 800,
@@ -163,28 +164,19 @@ export const useTypoStyles = createStyles((theme) => {
       },
     },
     bodyMd: {
-      fontSize: 14,
+      fontSize: 16,
       color: textColor,
       lineHeight: 1.5,
-      [theme.fn.largerThan('sm')]: {
-        fontSize: 16,
-      },
     },
     bodyLg: {
-      fontSize: 16,
-      lineHeight: 1.5,
-      color: textColor,
-      [theme.fn.largerThan('sm')]: {
-        fontSize: 18,
-      },
-    },
-    bodyXl: {
       fontSize: 18,
       lineHeight: 1.5,
       color: textColor,
-      [theme.fn.largerThan('sm')]: {
-        fontSize: 20,
-      },
+    },
+    bodyXl: {
+      fontSize: 20,
+      lineHeight: 1.5,
+      color: textColor,
     },
 
     // Body Only Size

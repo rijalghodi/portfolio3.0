@@ -23,29 +23,29 @@
     "@mantine/hooks": "6.0.21",
     "@mantine/next": "^6.0.21",
     "@tabler/icons-react": "^2.37.0",
-    "next": "latest",
+    "next": "^13.5.3",
     "next-progress": "^2.3.1",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "xstate": "^4.38.2",
     "zustand": "^4.4.1",
     "zustand-middleware-xstate": "2.0.0"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/node": "^20.7.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^13.5.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "typescript": "latest"
+    "typescript": "^5.0.0"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [

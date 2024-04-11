@@ -1,18 +1,14 @@
 import { AppShell, Box, Button, useMantineTheme } from '@mantine/core';
 import { IconArrowLeft } from '@tabler/icons-react';
-import { Inter } from 'next/font/google';
 import { useRouter } from 'next/router';
 
-import { ResponsiveWrapper } from '@/components';
-
 import { Footer, Header } from './parts';
+import { ResponsiveWrapper } from '../../wrapper';
 
 type Props = {
   children: React.ReactNode;
   enableBack?: boolean;
 };
-
-const inter = Inter({ subsets: ['latin'] });
 
 export function DefaultLayout(props: Props) {
   const theme = useMantineTheme();
@@ -22,12 +18,12 @@ export function DefaultLayout(props: Props) {
       bg={
         theme.colorScheme === 'dark'
           ? theme.colors.dark[7]
-          : theme.colors.neutral[3]
+          : theme.colors.neutral[2]
       }
+      w="100%"
     >
       <ResponsiveWrapper>
         <AppShell
-          className={inter.className}
           styles={{
             main: {
               borderRadius: theme.spacing.md,
@@ -36,6 +32,7 @@ export function DefaultLayout(props: Props) {
               paddingRight: '0px !important',
               paddingBottom: 64,
               paddingTop: 90,
+              width: '100%',
             },
           }}
           navbarOffsetBreakpoint="sm"

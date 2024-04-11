@@ -2,6 +2,7 @@ import {
   Button,
   Drawer,
   DrawerProps,
+  List,
   useMantineColorScheme,
 } from '@mantine/core';
 import { IconArrowUpRight, IconSquareRoundedPlus } from '@tabler/icons-react';
@@ -58,10 +59,10 @@ export function MenuMobileView(props: DrawerProps) {
       })}
     >
       <nav className={cx(props.className, classes.nav)}>
-        <ul className={classes.menuUnorderedList}>
+        <List className={classes.menuUnorderedList}>
           {menus.map((menu, i) => {
             return (
-              <li
+              <List.Item
                 key={menu.link}
                 className={
                   activeLink?.link === menu.link
@@ -78,10 +79,10 @@ export function MenuMobileView(props: DrawerProps) {
                   {menu.title}
                 </Link>
                 {menu.openInNewTab && <IconArrowUpRight size={14} />}
-              </li>
+              </List.Item>
             );
           })}
-        </ul>
+        </List>
         <Button
           leftIcon={<IconSquareRoundedPlus size={16} />}
           component="a"
