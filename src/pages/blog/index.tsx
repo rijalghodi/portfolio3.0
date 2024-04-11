@@ -9,11 +9,12 @@ export default function BlogPage() {
       <Head>
         <title>Rijal Ghodi | Blog</title>
       </Head>
+
       <BlogListTemplate />
     </>
   );
 }
 
 BlogPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout enableBack>{page}</DefaultLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };

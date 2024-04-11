@@ -1,8 +1,8 @@
-import { Box, Flex, Text, Title } from '@mantine/core';
+import { Box, Flex, Group, Text, Title } from '@mantine/core';
 import Link from 'next/link';
 import React from 'react';
 
-import { CallToActionButton } from '@/components';
+import { CallToActionButton, SocialMenu } from '@/components';
 
 import { useTypoStyles } from '@/styles';
 
@@ -29,7 +29,10 @@ export function Introduction() {
           </Link>{' '}
           about code, self-improvement, and life.
         </Text>
-        <CallToActionButton position="left" />
+        <Group spacing="xl">
+          <CallToActionButton position="left" />
+          <SocialMenu />
+        </Group>
       </Box>
       <Box></Box>
     </Flex>

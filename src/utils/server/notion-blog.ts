@@ -13,7 +13,7 @@ type MetaRequest = {
 };
 
 export const fetchBlogs = ({
-  page_size = 1,
+  page_size,
   start_cursor = undefined,
 }: MetaRequest) => {
   return notion.databases.query({

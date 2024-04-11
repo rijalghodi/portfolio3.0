@@ -80,15 +80,16 @@ export default function BlogBook() {
         >
           Back to Start
         </Button>
-        <Button
-          className={classes.tertiaryButton}
-          variant="subtle"
-          onClick={() => setStartCursor(data?.next_cursor)}
-          rightIcon={<IconChevronRight size={16} />}
-          disabled={!data?.next_cursor}
-        >
-          Next Page
-        </Button>
+        {data?.next_cursor && (
+          <Button
+            className={classes.tertiaryButton}
+            variant="subtle"
+            onClick={() => setStartCursor(data?.next_cursor)}
+            rightIcon={<IconChevronRight size={16} />}
+          >
+            Next Page
+          </Button>
+        )}
       </Flex>
     </Stack>
   );

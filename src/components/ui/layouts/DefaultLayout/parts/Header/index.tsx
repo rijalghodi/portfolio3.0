@@ -17,7 +17,7 @@ import React from 'react';
 
 import { ResponsiveWrapper, ZKeyLogo } from '@/components';
 
-import { useShadowStyles, useTypoStyles } from '@/styles';
+import { useTypoStyles } from '@/styles';
 
 import { MenuDesktopView, MenuMobileView } from '..';
 
@@ -27,7 +27,6 @@ export function Header() {
 
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
 
-  const { classes: shadows } = useShadowStyles();
   const { classes: typo } = useTypoStyles();
 
   return (
@@ -53,7 +52,7 @@ export function Header() {
               ? theme.colors.dark[6]
               : theme.colors.neutral[0]
           }
-          className={shadows.heavyShadow}
+          shadow="md"
         >
           <Flex justify="space-between" align="center">
             <Group spacing={12}>

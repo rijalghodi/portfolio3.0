@@ -9,14 +9,20 @@ import hljsPlugin from '@notion-render/hljs-plugin';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { IconClock } from '@tabler/icons-react';
 import dayjs from 'dayjs';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 import { DefaultLayout } from '@/components';
+import Breadcrumbs from '@/components/ui/layouts/DefaultLayout/parts/Breadcrumbs';
 
 import { useTypoStyles } from '@/styles';
 import { notion } from '@/utils/server/notion';
-import { fetchBlogBlocks, fetchBlogBySlug } from '@/utils/server/notion-blog';
+import {
+  fetchBlogBlocks,
+  fetchBlogBySlug,
+  fetchBlogs,
+} from '@/utils/server/notion-blog';
 
 type Params = {
   slug: string;
@@ -29,35 +35,72 @@ type Props = {
 
 export default function BlogDetailPage({ data, html }: Props) {
   const { classes: typo } = useTypoStyles();
+
+  const title = (data?.properties.title as any).title
+    ?.map((v: any) => v.plain_text)
+    .join(' ');
+
   if (!data) {
     notFound();
   }
 
   return (
-    <Stack>
-      <Box>
-        <Title order={2} mb="xs">
-          {(data?.properties.title as any).title
-            ?.map((v: any) => v.plain_text)
-            .join(' ')}
-        </Title>
-        <Group spacing={8}>
-          <IconClock size={14} />
-          <Text className={typo.bodySm}>
-            {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
-          </Text>
-        </Group>
-      </Box>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
-    </Stack>
+    <>
+      <Head>
+        <title> {title} | Rijal Ghodi</title>
+      </Head>
+      <Stack mt="md" spacing="lg">
+        <Breadcrumbs
+          breadcrumbs={[
+            {
+              label: 'Home',
+              href: '/',
+            },
+            {
+              label: 'Blog',
+              href: '/blog',
+            },
+          ]}
+        />
+        <Stack spacing="sm">
+          <Box>
+            <Title order={1} mb="xs">
+              {title}
+            </Title>
+            <Group spacing={8}>
+              <IconClock size={14} />
+              <Text className={typo.bodySm}>
+                {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
+              </Text>
+            </Group>
+          </Box>
+          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        </Stack>
+      </Stack>
+    </>
   );
 }
 
 BlogDetailPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout enableBack>{page}</DefaultLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };
 
-export const getServerSideProps: GetServerSideProps<Props, Params> = async (
+// This function gets called at build time
+export async function getStaticPaths() {
+  const response = await fetchBlogs({});
+
+  const slugs = response.results.map(
+    ({ properties }: any) => (properties.slug as any).rich_text[0].plain_text,
+  );
+
+  const paths = slugs.map((slug) => ({
+    params: { slug },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export const getStaticProps: GetStaticProps<Props, Params> = async (
   context,
 ) => {
   const { params } = context;
@@ -85,5 +128,6 @@ export const getServerSideProps: GetServerSideProps<Props, Params> = async (
       data,
       html,
     },
+    revalidate: 60 * 20, // Re-generate page every 20 minutes
   };
 };

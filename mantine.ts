@@ -21,10 +21,11 @@ export const mantineTheme: MantineThemeOverride = {
   // },
 
   shadows: {
-    xs: '0px 2px 4px 0px rgba(0, 0, 0, 0.05)',
-    sm: '0px 2px 8px 0px rgba(0, 0, 0, 0.05)',
-    md: '0px 4px 18px 0px rgba(0, 0, 0, .1)',
-    xl: '0px 8px 24px 0px rgba(0, 0, 0, .1)',
+    xs: '0px 1px 15px 0px rgba(0, 0, 0, 0.01)',
+    sm: '0px 1px 30px 0px rgba(0, 0, 0, 0.01)',
+    md: '0px 4px 30px 0px rgba(0, 0, 0, .05)',
+    lg: '0px 4px 24px 0px rgba(0, 0, 0, .1)',
+    xl: '0px 4px 40px 0px rgba(0, 0, 0, 0.1)',
   },
   components: {
     Container: {
@@ -75,7 +76,7 @@ export const mantineTheme: MantineThemeOverride = {
       '#58AE1E', // 9
     ],
     neutral: [
-      '#FFFFFF', // 0
+      '#ffffff', // 0
       '#F1F9F5', // 1
       '#E9F6F1', // 2
       '#E2F3ED', // 3
@@ -101,6 +102,7 @@ export const mantineTheme: MantineThemeOverride = {
   },
 
   white: '#ffffff',
+  black: '#05192D',
 
   primaryColor: 'brand',
   primaryShade: 8,

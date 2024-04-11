@@ -5,7 +5,7 @@ type Props = ContainerProps;
 
 export function ResponsiveWrapper(props: Props) {
   return (
-    <Container maw={800} mx="auto" {...props}>
+    <Container maw={1000} mx="auto" {...props}>
       {props.children}
     </Container>
   );
