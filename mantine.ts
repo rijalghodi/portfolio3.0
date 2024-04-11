@@ -100,6 +100,8 @@ export const mantineTheme: MantineThemeOverride = {
     ],
   },
 
+  white: '#ffffff',
+
   primaryColor: 'brand',
   primaryShade: 8,
 };

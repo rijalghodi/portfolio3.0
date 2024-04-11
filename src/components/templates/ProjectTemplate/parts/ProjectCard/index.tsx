@@ -23,7 +23,7 @@ export function ProjectCard(props: Project) {
   return (
     <Paper
       bg={
-        colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[1]
+        colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[0]
       }
       p="md"
     >

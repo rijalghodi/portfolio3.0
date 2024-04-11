@@ -2,7 +2,6 @@ import {
   ActionIcon,
   Box,
   Burger,
-  Container,
   Flex,
   Group,
   Header as MantineHeader,
@@ -16,7 +15,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import React from 'react';
 
-import { ZKeyLogo } from '@/components';
+import { ResponsiveWrapper, ZKeyLogo } from '@/components';
 
 import { useShadowStyles, useTypoStyles } from '@/styles';
 
@@ -44,7 +43,7 @@ export function Header() {
         zIndex: 100,
       }}
     >
-      <Container>
+      <ResponsiveWrapper>
         <Paper
           radius="sm"
           px="md"
@@ -52,7 +51,7 @@ export function Header() {
           bg={
             colorScheme === 'dark'
               ? theme.colors.dark[6]
-              : theme.colors.neutral[1]
+              : theme.colors.neutral[0]
           }
           className={shadows.heavyShadow}
         >
@@ -87,7 +86,7 @@ export function Header() {
             </Group>
           </Flex>
         </Paper>
-      </Container>
+      </ResponsiveWrapper>
     </MantineHeader>
   );
 }

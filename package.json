@@ -22,14 +22,17 @@
     "@mantine/core": "6.0.21",
     "@mantine/hooks": "6.0.21",
     "@mantine/next": "^6.0.21",
+    "@notion-render/bookmark-plugin": "^0.0.2",
+    "@notion-render/client": "^0.0.2",
+    "@notion-render/hljs-plugin": "^0.0.2",
+    "@notionhq/client": "^2.2.15",
     "@tabler/icons-react": "^2.37.0",
+    "axios": "^1.6.8",
     "next": "^13.5.3",
     "next-progress": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "xstate": "^4.38.2",
-    "zustand": "^4.4.1",
-    "zustand-middleware-xstate": "2.0.0"
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@types/node": "^20.7.2",

@@ -18,7 +18,7 @@ export function DefaultLayout(props: Props) {
       bg={
         theme.colorScheme === 'dark'
           ? theme.colors.dark[7]
-          : theme.colors.neutral[2]
+          : theme.colors.neutral[1]
       }
       w="100%"
     >

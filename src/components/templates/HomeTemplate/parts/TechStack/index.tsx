@@ -30,7 +30,7 @@ export function TechStack() {
                   bg={
                     colorScheme === 'dark'
                       ? theme.colors.dark[6]
-                      : theme.colors.neutral[1]
+                      : theme.colors.neutral[0]
                   }
                   p="md"
                 >

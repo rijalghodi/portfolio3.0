@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-import { ComingSoonPageMessage, DefaultLayout } from '@/components';
+import { DefaultLayout } from '@/components';
+import { BlogListTemplate } from '@/components/templates/BlogListTemplate';
 
 export default function BlogPage() {
   return (
@@ -8,11 +9,11 @@ export default function BlogPage() {
       <Head>
         <title>Rijal Ghodi | Blog</title>
       </Head>
-      <ComingSoonPageMessage />
+      <BlogListTemplate />
     </>
   );
 }
 
 BlogPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>;
+  return <DefaultLayout enableBack>{page}</DefaultLayout>;
 };
