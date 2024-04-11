@@ -23,7 +23,7 @@ export function BlogItemCard(props: Blog) {
       }
       p="md"
     >
-      <Link href={props.slug}>
+      <Link href={`/blog/${props.slug}`}>
         <Title
           order={2}
           className={typo.heading4}

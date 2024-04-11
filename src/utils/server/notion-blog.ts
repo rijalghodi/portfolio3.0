@@ -17,7 +17,7 @@ export const fetchBlogs = ({
   start_cursor = undefined,
 }: MetaRequest) => {
   return notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID!,
+    database_id: process.env.NOTION_BLOG_DB_ID!,
     filter: {
       property: 'status',
       status: {
@@ -29,10 +29,10 @@ export const fetchBlogs = ({
   });
 };
 
-export const fetchPageBySlug = (slug: string) => {
+export const fetchBlogBySlug = async (slug: string) => {
   return notion.databases
     .query({
-      database_id: process.env.NOTION_DATABASE_ID!,
+      database_id: process.env.NOTION_BLOG_DB_ID!,
       filter: {
         property: 'slug',
         rich_text: {
@@ -43,7 +43,7 @@ export const fetchPageBySlug = (slug: string) => {
     .then((res) => res.results[0] as PageObjectResponse | undefined);
 };
 
-export const fetchPageBlocks = (pageId: string) => {
+export const fetchBlogBlocks = async (pageId: string) => {
   return notion.blocks.children
     .list({ block_id: pageId })
     .then((res) => res.results as BlockObjectResponse[]);

@@ -32,7 +32,7 @@ export function Header() {
 
   return (
     <MantineHeader
-      height={{ base: 60 }}
+      height={{ base: 50 }}
       pt="xs"
       unstyled
       pos="fixed"
@@ -47,7 +47,7 @@ export function Header() {
         <Paper
           radius="sm"
           px="md"
-          py="sm"
+          py="xs"
           bg={
             colorScheme === 'dark'
               ? theme.colors.dark[6]
