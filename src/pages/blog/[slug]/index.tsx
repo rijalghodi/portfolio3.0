@@ -1,6 +1,6 @@
 // app/blog/[slug]/page.tsx
 
-import { Group, Stack, Title } from '@mantine/core';
+import { Box, Group, Stack, Title } from '@mantine/core';
 import { Text } from '@mantine/core';
 import bookmarkPlugin from '@notion-render/bookmark-plugin';
 import { NotionRenderer } from '@notion-render/client';
@@ -35,24 +35,26 @@ export default function BlogDetailPage({ data, html }: Props) {
 
   return (
     <Stack>
-      <Title>
-        {(data?.properties.title as any).title
-          ?.map((v: any) => v.plain_text)
-          .join(' ')}
-      </Title>
-      <Group spacing={8}>
-        <IconClock size={14} />
-        <Text className={typo.bodySm}>
-          {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
-        </Text>
-      </Group>
+      <Box>
+        <Title order={2} mb="xs">
+          {(data?.properties.title as any).title
+            ?.map((v: any) => v.plain_text)
+            .join(' ')}
+        </Title>
+        <Group spacing={8}>
+          <IconClock size={14} />
+          <Text className={typo.bodySm}>
+            {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
+          </Text>
+        </Group>
+      </Box>
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
     </Stack>
   );
 }
 
 BlogDetailPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>;
+  return <DefaultLayout enableBack>{page}</DefaultLayout>;
 };
 
 export const getServerSideProps: GetServerSideProps<Props, Params> = async (
