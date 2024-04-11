@@ -10,8 +10,6 @@ import React from 'react';
 
 import { comapnyLinkedIn, companyGithubLink, companyIgLink } from '@/data';
 
-import { useTransformationnStyles } from '@/styles';
-
 type Props = GroupProps & {
   size?: MantineSize;
   hoverBgColor?: MantineColor;
@@ -20,7 +18,6 @@ type Props = GroupProps & {
 
 export function SocialMenu(props: Props) {
   const { color, hoverBgColor, hoverColor, size, ...groupProps } = props;
-  const { classes: transforms } = useTransformationnStyles();
   return (
     <Group
       {...groupProps}
@@ -42,7 +39,6 @@ export function SocialMenu(props: Props) {
             color: hoverColor,
           },
         })}
-        className={transforms.hoverUpTransformation}
       >
         <Icon icon="mdi:github" color={color} width="75%" />
       </ActionIcon>
@@ -60,7 +56,6 @@ export function SocialMenu(props: Props) {
             color: hoverColor,
           },
         })}
-        className={transforms.hoverUpTransformation}
       >
         <Icon icon="mdi:linkedin" width="75%" color={color} />
       </ActionIcon>
@@ -78,7 +73,6 @@ export function SocialMenu(props: Props) {
             color: hoverColor,
           },
         })}
-        className={transforms.hoverUpTransformation}
       >
         <Icon icon="mdi:instagram" width="75%" color={color} />
       </ActionIcon>

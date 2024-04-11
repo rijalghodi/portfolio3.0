@@ -14,5 +14,5 @@ export default function ProjectPage() {
 }
 
 ProjectPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout enableBack={true}>{page}</DefaultLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };

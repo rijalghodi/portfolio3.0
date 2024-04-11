@@ -22,6 +22,7 @@ export function BlogItemCard(props: Blog) {
         colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[0]
       }
       p="md"
+      shadow="sm"
     >
       <Link href={`/blog/${props.slug}`}>
         <Title

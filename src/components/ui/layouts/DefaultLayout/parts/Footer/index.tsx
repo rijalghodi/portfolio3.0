@@ -1,4 +1,5 @@
 import {
+  Box,
   Divider,
   Flex,
   Paper,
@@ -26,7 +27,7 @@ export function Footer() {
         bg={
           colorScheme === 'dark'
             ? theme.colors.dark[6]
-            : theme.colors.neutral[2]
+            : theme.colors.neutral[0]
         }
         className={shadows.upShadow}
         pt={64}
@@ -45,16 +46,7 @@ export function Footer() {
             </Text>
             <CallToActionButton />
           </Stack>
-          <Paper
-            bg={
-              colorScheme === 'dark'
-                ? theme.colors.dark[5]
-                : theme.colors.neutral[1]
-            }
-            className={shadows.defaultShadow}
-            py="sm"
-            px="lg"
-          >
+          <Box py="sm" px="lg">
             <Flex
               justify={xSmallScreen ? 'flex-start' : 'space-between'}
               align="center"
@@ -64,7 +56,7 @@ export function Footer() {
               <Text className={typo.heading4}>Follow My Journey</Text>
               <SocialMenu />
             </Flex>
-          </Paper>
+          </Box>
         </Stack>
         <Divider mt="md" />
         <Text ta="center" py="xs" className={typo.bodySm}>

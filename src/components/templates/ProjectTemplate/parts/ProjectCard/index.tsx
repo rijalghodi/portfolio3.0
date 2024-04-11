@@ -7,7 +7,7 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
-import { IconBrandGithub, IconEye } from '@tabler/icons-react';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -26,6 +26,7 @@ export function ProjectCard(props: Project) {
         colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[0]
       }
       p="md"
+      shadow="sm"
     >
       {props.articleLink ? (
         <Link href={props.articleLink}>
@@ -60,6 +61,7 @@ export function ProjectCard(props: Project) {
             }}
             radius="sm"
             size="xs"
+            target="_blank"
           >
             Code
           </Button>
@@ -69,11 +71,12 @@ export function ProjectCard(props: Project) {
             component="a"
             href={props.demoLink}
             className={buttons.secondaryButton}
-            leftIcon={<IconEye size={16} />}
+            leftIcon={<IconExternalLink size={16} />}
             styles={{
               leftIcon: { marginRight: 6 },
             }}
             title="Visit Demo Page"
+            target="_blank"
             radius="sm"
             size="xs"
           >

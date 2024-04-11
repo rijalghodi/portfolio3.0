@@ -37,6 +37,7 @@ export function Experience() {
                       : theme.colors.neutral[0]
                   }
                   p="md"
+                  shadow="sm"
                 >
                   {v.logo && (
                     <Image

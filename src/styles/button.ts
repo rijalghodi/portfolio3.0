@@ -31,15 +31,11 @@ export const useButtonStyles = createStyles((theme) => ({
     backgroundColor: 'transparent',
     '&:hover': {
       backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[6]
-          : theme.colors.neutral[2],
+        theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
     },
     '&:active': {
       backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[3]
-          : theme.colors.neutral[2],
+        theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.white,
     },
   },
 }));

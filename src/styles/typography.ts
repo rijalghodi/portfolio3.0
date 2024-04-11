@@ -230,5 +230,10 @@ export const useTypoStyles = createStyles((theme) => {
         textDecoration: 'underline',
       },
     },
+    plainAnchor: {
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
   };
 });

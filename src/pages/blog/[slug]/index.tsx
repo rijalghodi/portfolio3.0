@@ -1,63 +1,121 @@
 // app/blog/[slug]/page.tsx
 
-import { Box, Group, Stack, Title } from '@mantine/core';
+import { Box, Group, Stack, Title, useMantineColorScheme } from '@mantine/core';
 import { Text } from '@mantine/core';
 import bookmarkPlugin from '@notion-render/bookmark-plugin';
 import { NotionRenderer } from '@notion-render/client';
 //Plugins
 import hljsPlugin from '@notion-render/hljs-plugin';
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { IconClock } from '@tabler/icons-react';
 import dayjs from 'dayjs';
-import { GetServerSideProps } from 'next';
+import hljs from 'highlight.js';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import { notFound } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { DefaultLayout } from '@/components';
+import Breadcrumbs from '@/components/ui/layouts/DefaultLayout/parts/Breadcrumbs';
 
 import { useTypoStyles } from '@/styles';
 import { notion } from '@/utils/server/notion';
-import { fetchBlogBlocks, fetchBlogBySlug } from '@/utils/server/notion-blog';
+import {
+  fetchBlogBlocks,
+  fetchBlogBySlug,
+  fetchBlogs,
+} from '@/utils/server/notion-blog';
 
 type Params = {
   slug: string;
 };
 
 type Props = {
-  data: PageObjectResponse | undefined;
+  data: {
+    title?: string;
+    last_edited_time?: string;
+  };
   html: string;
 };
 
 export default function BlogDetailPage({ data, html }: Props) {
   const { classes: typo } = useTypoStyles();
+  const { colorScheme } = useMantineColorScheme();
+
+  useEffect(() => {
+    const themeLink = document.querySelector('#highlight-theme-link');
+    if (colorScheme === 'dark') {
+      themeLink?.setAttribute('href', 'obsidian.css');
+    } else {
+      themeLink?.setAttribute('href', 'github.css');
+    }
+
+    hljs.highlightAll();
+  }, [colorScheme]);
+
   if (!data) {
     notFound();
   }
 
   return (
-    <Stack>
-      <Box>
-        <Title order={2} mb="xs">
-          {(data?.properties.title as any).title
-            ?.map((v: any) => v.plain_text)
-            .join(' ')}
-        </Title>
-        <Group spacing={8}>
-          <IconClock size={14} />
-          <Text className={typo.bodySm}>
-            {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
-          </Text>
-        </Group>
-      </Box>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
-    </Stack>
+    <>
+      <Head>
+        <title>{data?.title} | Rijal Ghodi</title>
+      </Head>
+      <Stack mt="md" spacing="lg">
+        <Breadcrumbs
+          breadcrumbs={[
+            {
+              label: 'Home',
+              href: '/',
+            },
+            {
+              label: 'Blog',
+              href: '/blog',
+            },
+          ]}
+        />
+        <Stack spacing="sm">
+          <Box>
+            <Title order={1} mb="xs">
+              {data.title}
+            </Title>
+            <Group spacing={8}>
+              <IconClock size={14} />
+              <Text className={typo.bodySm}>
+                {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
+              </Text>
+            </Group>
+          </Box>
+          <div
+            className="notion-render"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
+        </Stack>
+      </Stack>
+    </>
   );
 }
 
 BlogDetailPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <DefaultLayout enableBack>{page}</DefaultLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };
 
-export const getServerSideProps: GetServerSideProps<Props, Params> = async (
+// This function gets called at build time
+export async function getStaticPaths() {
+  const response = await fetchBlogs({});
+
+  const slugs = response.results.map(
+    ({ properties }: any) => (properties.slug as any).rich_text[0].plain_text,
+  );
+
+  const paths = slugs.map((slug) => ({
+    params: { slug },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export const getStaticProps: GetStaticProps<Props, Params> = async (
   context,
 ) => {
   const { params } = context;
@@ -82,8 +140,14 @@ export const getServerSideProps: GetServerSideProps<Props, Params> = async (
 
   return {
     props: {
-      data,
+      data: {
+        title: (data?.properties.title as any).title
+          ?.map((v: any) => v.plain_text)
+          .join(' '),
+        last_edited_time: data?.last_edited_time ?? '',
+      },
       html,
     },
+    revalidate: 60 * 20, // Re-generate page every 20 minutes
   };
 };

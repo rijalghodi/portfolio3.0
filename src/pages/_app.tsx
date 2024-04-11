@@ -3,6 +3,12 @@ import {
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
+import hljs from 'highlight.js/lib/core';
+import css from 'highlight.js/lib/languages/css';
+import javascript from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import html from 'highlight.js/lib/languages/vbscript-html';
+// import 'highlight.js/styles/base16';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
@@ -12,6 +18,17 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import '../styles/globals.css';
+import '@notion-render/client/dist/theme.css';
+import '@/styles/custom-notion.css';
+import 'highlight.js/styles/obsidian.css'; // Choose the desired style
+// import 'highlight.js/styles/github.css'; // Choose the desired style
+
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('html', html);
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('python', python);
+
+import { useLocalStorage } from '@mantine/hooks';
 
 import { mantineTheme } from '../../mantine';
 
@@ -36,9 +53,15 @@ const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: React.ReactElement) => page);
 
-  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'colorScheme',
+    defaultValue: 'dark',
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) => {
+    const newColorScheme = colorScheme === 'light' ? 'dark' : 'light';
+    setColorScheme(value || newColorScheme);
+  };
 
   const title = 'Rijal Ghodi | Digital Garden';
   const description =

@@ -13,10 +13,9 @@ import { techStacks } from '@/data';
 
 import { SectionWrapper } from '@/components';
 
-import { useShadowStyles, useTypoStyles } from '@/styles';
+import { useTypoStyles } from '@/styles';
 export function TechStack() {
   const { classes: typo } = useTypoStyles();
-  const { classes: shadows } = useShadowStyles();
   const { colorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
   return (
@@ -33,6 +32,7 @@ export function TechStack() {
                       : theme.colors.neutral[0]
                   }
                   p="md"
+                  shadow="sm"
                 >
                   <Title order={2} className={typo.heading4} mb="sm">
                     {v.category}
@@ -49,7 +49,6 @@ export function TechStack() {
                           color={tech.color}
                           size="md"
                           radius="xl"
-                          className={shadows.heavyShadow}
                         >
                           {tech.name}
                         </Badge>

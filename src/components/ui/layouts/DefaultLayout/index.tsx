@@ -1,18 +1,15 @@
-import { AppShell, Box, Button, useMantineTheme } from '@mantine/core';
-import { IconArrowLeft } from '@tabler/icons-react';
-import { useRouter } from 'next/router';
+import { AppShell, Box, useMantineTheme } from '@mantine/core';
 
 import { Footer, Header } from './parts';
 import { ResponsiveWrapper } from '../../wrapper';
 
 type Props = {
   children: React.ReactNode;
-  enableBack?: boolean;
 };
 
 export function DefaultLayout(props: Props) {
   const theme = useMantineTheme();
-  const router = useRouter();
+
   return (
     <Box
       bg={
@@ -40,18 +37,6 @@ export function DefaultLayout(props: Props) {
           footer={<Footer />}
           header={<Header />}
         >
-          {props.enableBack && (
-            <Button
-              variant="subtle"
-              color="gray"
-              leftIcon={<IconArrowLeft size={14} />}
-              size="xs"
-              onClick={() => router.back()}
-              mb={12}
-            >
-              Back
-            </Button>
-          )}
           {props.children}
         </AppShell>
       </ResponsiveWrapper>
