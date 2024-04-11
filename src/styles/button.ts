@@ -12,18 +12,14 @@ export const useButtonStyles = createStyles((theme) => ({
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.colors.dark[5]
-        : theme.colors.neutral[1],
+        : theme.colors.neutral[0],
     '&:hover': {
       backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[4]
-          : theme.colors.neutral[0],
+        theme.colorScheme === 'dark' ? theme.colors.dark[4] : '#fff',
     },
     '&:active': {
       backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[3]
-          : theme.colors.neutral[1],
+        theme.colorScheme === 'dark' ? theme.colors.dark[3] : '#fff',
     },
   },
   tertiaryButton: {
