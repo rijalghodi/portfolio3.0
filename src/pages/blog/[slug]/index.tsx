@@ -2,28 +2,51 @@
 
 import { Box, Group, Stack, Title, useMantineColorScheme } from '@mantine/core';
 import { Text } from '@mantine/core';
-import bookmarkPlugin from '@notion-render/bookmark-plugin';
-import { NotionRenderer } from '@notion-render/client';
 //Plugins
-import hljsPlugin from '@notion-render/hljs-plugin';
 import { IconClock } from '@tabler/icons-react';
 import dayjs from 'dayjs';
-import hljs from 'highlight.js';
 import { GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
-import { useEffect } from 'react';
+import { ExtendedRecordMap } from 'notion-types';
+import { NotionRenderer as NotionXRenderer } from 'react-notion-x';
 
 import { DefaultLayout } from '@/components';
 import Breadcrumbs from '@/components/ui/layouts/DefaultLayout/parts/Breadcrumbs';
 
 import { useTypoStyles } from '@/styles';
-import { notion } from '@/utils/server/notion';
-import {
-  fetchBlogBlocks,
-  fetchBlogBySlug,
-  fetchBlogs,
-} from '@/utils/server/notion-blog';
+import { fetchBlogBySlug, fetchBlogs } from '@/utils/server/get-notion-blog';
+import { getNotionPage } from '@/utils/server/get-notion-page';
+
+const Code = dynamic(() =>
+  import('react-notion-x/build/third-party/code').then(async (m) => {
+    // add / remove any prism syntaxes here
+    await Promise.allSettled([
+      import('prismjs/components/prism-bash.js'),
+      import('prismjs/components/prism-c.js'),
+      import('prismjs/components/prism-cpp.js'),
+      import('prismjs/components/prism-docker.js'),
+      import('prismjs/components/prism-java.js'),
+      import('prismjs/components/prism-js-templates.js'),
+      import('prismjs/components/prism-git.js'),
+      import('prismjs/components/prism-go.js'),
+      import('prismjs/components/prism-graphql.js'),
+      import('prismjs/components/prism-markdown.js'),
+      import('prismjs/components/prism-python.js'),
+      import('prismjs/components/prism-rust.js'),
+      import('prismjs/components/prism-sass.js'),
+      import('prismjs/components/prism-scss.js'),
+      import('prismjs/components/prism-sql.js'),
+      import('prismjs/components/prism-yaml.js'),
+    ]);
+    return m.Code;
+  }),
+);
+
+const Equation = dynamic(() =>
+  import('react-notion-x/build/third-party/equation').then((m) => m.Equation),
+);
 
 type Params = {
   slug: string;
@@ -34,23 +57,12 @@ type Props = {
     title?: string;
     last_edited_time?: string;
   };
-  html: string;
+  recordMap: ExtendedRecordMap | null;
 };
 
-export default function BlogDetailPage({ data, html }: Props) {
+export default function BlogDetailPage({ data, recordMap }: Props) {
   const { classes: typo } = useTypoStyles();
   const { colorScheme } = useMantineColorScheme();
-
-  useEffect(() => {
-    const themeLink = document.querySelector('#highlight-theme-link');
-    if (colorScheme === 'dark') {
-      themeLink?.setAttribute('href', 'obsidian.css');
-    } else {
-      themeLink?.setAttribute('href', 'github.css');
-    }
-
-    hljs.highlightAll();
-  }, [colorScheme]);
 
   if (!data) {
     notFound();
@@ -74,23 +86,29 @@ export default function BlogDetailPage({ data, html }: Props) {
             },
           ]}
         />
-        <Stack spacing="sm">
-          <Box>
-            <Title order={1} mb="xs">
-              {data.title}
-            </Title>
-            <Group spacing={8}>
-              <IconClock size={14} />
-              <Text className={typo.bodySm}>
-                {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
-              </Text>
-            </Group>
-          </Box>
-          <div
-            className="notion-render"
-            dangerouslySetInnerHTML={{ __html: html }}
-          ></div>
-        </Stack>
+        <Box>
+          <Title order={1} mb="xs">
+            {data.title}
+          </Title>
+          <Group spacing={8}>
+            <IconClock size={14} />
+            <Text className={typo.bodySm}>
+              {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
+            </Text>
+          </Group>
+        </Box>
+        {recordMap && (
+          <NotionXRenderer
+            recordMap={recordMap}
+            fullPage={false}
+            darkMode={colorScheme === 'dark'}
+            minTableOfContentsItems={3}
+            components={{
+              Code,
+              Equation,
+            }}
+          />
+        )}
       </Stack>
     </>
   );
@@ -124,18 +142,10 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 
   const data = await fetchBlogBySlug(slug as string);
 
-  let html = '';
+  let recordMap: ExtendedRecordMap | null = null;
 
   if (data) {
-    const blocks = await fetchBlogBlocks(data.id);
-
-    const notionRenderer = new NotionRenderer({
-      client: notion,
-    });
-
-    notionRenderer.use(hljsPlugin({}));
-    notionRenderer.use(bookmarkPlugin(undefined));
-    html = await notionRenderer.render(...blocks);
+    recordMap = await getNotionPage(data.id);
   }
 
   return {
@@ -146,7 +156,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
           .join(' '),
         last_edited_time: data?.last_edited_time ?? '',
       },
-      html,
+      recordMap,
     },
     revalidate: 60 * 20, // Re-generate page every 20 minutes
   };

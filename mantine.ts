@@ -94,14 +94,14 @@ export const mantineTheme: MantineThemeOverride = {
       '#526980', // 3
       '#354C65', // 4
       '#233343', // 5
-      '#1A2638',
-      '#05192D',
-      '#041120',
-      '#020C17',
+      '#1A2638', // 6
+      '#05192D', // 7
+      '#041120', // 8
+      '#020C17', // 9
     ],
   },
 
-  white: '#ffffff',
+  white: '#F1F9F5',
   black: '#05192D',
 
   primaryColor: 'brand',

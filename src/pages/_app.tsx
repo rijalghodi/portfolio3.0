@@ -3,11 +3,8 @@ import {
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
-import hljs from 'highlight.js/lib/core';
-import css from 'highlight.js/lib/languages/css';
-import javascript from 'highlight.js/lib/languages/javascript';
-import python from 'highlight.js/lib/languages/python';
-import html from 'highlight.js/lib/languages/vbscript-html';
+// core styles shared by all of react-notion-x (required)
+import { useLocalStorage } from '@mantine/hooks';
 // import 'highlight.js/styles/base16';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -18,17 +15,11 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import '../styles/globals.css';
-import '@notion-render/client/dist/theme.css';
+import 'react-notion-x/src/styles.css';
+import '@/styles/prism-zalcode.css';
+// used for rendering equations (optional)
+import 'katex/dist/katex.min.css';
 import '@/styles/custom-notion.css';
-import 'highlight.js/styles/obsidian.css'; // Choose the desired style
-// import 'highlight.js/styles/github.css'; // Choose the desired style
-
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('html', html);
-hljs.registerLanguage('css', css);
-hljs.registerLanguage('python', python);
-
-import { useLocalStorage } from '@mantine/hooks';
 
 import { mantineTheme } from '../../mantine';
 
@@ -111,6 +102,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         >
           <MantineProvider
             withGlobalStyles
+            withNormalizeCSS
+            withCSSVariables
             theme={{
               ...mantineTheme,
               colorScheme,

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { fetchBlogs } from '@/utils/server/notion-blog';
+import { fetchBlogs } from '@/utils/server/get-notion-blog';
 
 // pages/api/blogs.js
 
