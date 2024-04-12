@@ -3,3 +3,28 @@
   color: #ffffff;
   border-radius: 12px;
 }
+
+:root {
+  --notion-font: inherit !important;
+}
+
+.notion {
+  padding: 0px !important;
+  margin: 0px 0px;
+}
+
+.notion-equation-block {
+  padding: 16px 8px;
+}
+
+.notion-equation-block span {
+  text-align: center;
+}
+
+.dark-mode {
+  --fg-color: var(--mantine-color-dark-0);
+}
+
+.light-mode {
+  --fg-color: var(--mantine-color-dark-5);
+}

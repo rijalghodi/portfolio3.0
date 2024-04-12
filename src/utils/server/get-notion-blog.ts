@@ -1,11 +1,10 @@
-// import 'server-only';
-
 import {
   BlockObjectResponse,
   PageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 
-import { notion } from './notion';
+// import 'server-only';
+import { notionHqApi } from './notion';
 
 type MetaRequest = {
   page_size?: number;
@@ -16,7 +15,7 @@ export const fetchBlogs = ({
   page_size,
   start_cursor = undefined,
 }: MetaRequest) => {
-  return notion.databases.query({
+  return notionHqApi.databases.query({
     database_id: process.env.NOTION_BLOG_DB_ID!,
     filter: {
       property: 'status',
@@ -30,7 +29,7 @@ export const fetchBlogs = ({
 };
 
 export const fetchBlogBySlug = async (slug: string) => {
-  return notion.databases
+  return notionHqApi.databases
     .query({
       database_id: process.env.NOTION_BLOG_DB_ID!,
       filter: {
@@ -44,7 +43,7 @@ export const fetchBlogBySlug = async (slug: string) => {
 };
 
 export const fetchBlogBlocks = async (pageId: string) => {
-  return notion.blocks.children
+  return notionHqApi.blocks.children
     .list({ block_id: pageId })
     .then((res) => res.results as BlockObjectResponse[]);
 };

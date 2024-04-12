@@ -2,7 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { fetchBlogBySlug } from '@/utils/server/notion-blog';
+import { fetchBlogBySlug } from '@/utils/server/get-notion-blog';
 
 export default function handler(
   req: NextApiRequest,
