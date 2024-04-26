@@ -62,27 +62,24 @@ export default function BlogBook() {
   // return 'Hello';
   return (
     <Stack>
-      <ul>
-        <Grid gutter="xs" gutterMd="md">
-          {data?.results.map(({ properties }, i) => (
-            <Grid.Col key={i} span={12} sm={6}>
-              <li>
-                <BlogItemCard
-                  key={i}
-                  id={(properties.id as any).unique_id.number}
-                  title={(properties.title as any).title
-                    ?.map((v: any) => v.plain_text)
-                    .join(' ')}
-                  excerpt={(properties.excerpt as any).rich_text
-                    ?.map((v: any) => v.plain_text)
-                    .join('')}
-                  slug={(properties.slug as any).rich_text[0].plain_text}
-                />
-              </li>
-            </Grid.Col>
-          ))}
-        </Grid>
-      </ul>
+      <Grid gutter="xs" gutterMd="md">
+        {data?.results.map(({ properties }, i) => (
+          <Grid.Col key={i} span={12} sm={6}>
+            <BlogItemCard
+              key={i}
+              id={(properties.id as any).unique_id.number}
+              title={(properties.title as any).title
+                ?.map((v: any) => v.plain_text)
+                .join(' ')}
+              excerpt={(properties.excerpt as any).rich_text
+                ?.map((v: any) => v.plain_text)
+                .join('')}
+              slug={(properties.slug as any).rich_text[0].plain_text}
+            />
+          </Grid.Col>
+        ))}
+      </Grid>
+
       <Flex justify="space-between">
         <Button
           className={classes.tertiaryButton}
