@@ -8,7 +8,7 @@ import { useLocalStorage } from '@mantine/hooks';
 // import 'highlight.js/styles/base16';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { Inter } from 'next/font/google';
+import { Barlow } from 'next/font/google';
 import Head from 'next/head';
 import NextProgress from 'next-progress';
 import React from 'react';
@@ -31,7 +31,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout | any;
 };
 
-const inter = Inter({
+const barlow = Barlow({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
 });
@@ -107,7 +107,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             theme={{
               ...mantineTheme,
               colorScheme,
-              fontFamily: inter.style.fontFamily,
+              fontFamily: barlow.style.fontFamily,
             }}
           >
             {getLayout(<Component {...pageProps} />)}

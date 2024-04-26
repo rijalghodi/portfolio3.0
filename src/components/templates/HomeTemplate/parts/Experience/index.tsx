@@ -57,7 +57,7 @@ export function Experience() {
                       {v.companyLink ? (
                         <Link href={v.companyLink}>
                           <Text
-                            className={typo.bodySm}
+                            className={typo.bodyMd}
                             sx={{ '&:hover': { textDecoration: 'underline' } }}
                             span
                           >
@@ -65,17 +65,17 @@ export function Experience() {
                           </Text>
                         </Link>
                       ) : (
-                        <Text className={typo.bodySm} mb="sm" span>
+                        <Text className={typo.bodyMd} mb="sm" span>
                           {v.company}
                         </Text>
                       )}{' '}
                       <IconPointFilled size={10} />{' '}
-                      <Text className={typo.bodySm} span>
+                      <Text className={typo.bodyMd} span>
                         {v.experienceCategory}
                       </Text>
                     </Box>
                   </Box>
-                  <Text className={typo.bodySm} mb="sm">
+                  <Text className={typo.bodyMd} mb="sm">
                     {v.shortDesc}
                   </Text>
                 </Paper>
