@@ -13,17 +13,13 @@ type Props = {
 export function ProjectSpoil(props: Props) {
   return (
     <SectionWrapper title="My Projects" viewAllLink="/project">
-      <ul>
-        <Grid gutter="xs" gutterMd="md">
-          {props.projects.map((v) => (
-            <Grid.Col key={v.name} span={12} sm={6}>
-              <li>
-                <ProjectCard {...v} />
-              </li>
-            </Grid.Col>
-          ))}
-        </Grid>
-      </ul>
+      <Grid gutter="xs" gutterMd="md">
+        {props.projects.map((v) => (
+          <Grid.Col key={v.name} span={12} sm={6}>
+            <ProjectCard {...v} />
+          </Grid.Col>
+        ))}
+      </Grid>
     </SectionWrapper>
   );
 }

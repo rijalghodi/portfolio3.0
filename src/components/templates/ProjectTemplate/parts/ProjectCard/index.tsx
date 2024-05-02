@@ -44,7 +44,7 @@ export function ProjectCard(props: Project) {
           {props.name}
         </Title>
       )}
-      <Text className={typo.bodySm} mb="sm">
+      <Text className={typo.bodyMd} mb="sm">
         {props.shortDesc}
       </Text>
 

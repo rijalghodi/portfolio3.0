@@ -35,9 +35,7 @@ export function BlogItemCard(props: Blog) {
         </Title>
       </Link>
 
-      <Text className={typo.bodySm} mb="sm">
-        {props.excerpt}
-      </Text>
+      <Text className={typo.bodyMd}>{props.excerpt}</Text>
     </Paper>
   );
 }

@@ -9,17 +9,13 @@ import { ProjectCard } from '@/components/templates/ProjectTemplate/parts';
 export function ProjectBook() {
   return (
     <PaperWrapper>
-      <ul>
-        <Grid gutter="xs" gutterMd="md">
-          {projects.map((v) => (
-            <Grid.Col key={v.name} span={12} sm={6}>
-              <li>
-                <ProjectCard {...v} />
-              </li>
-            </Grid.Col>
-          ))}
-        </Grid>
-      </ul>
+      <Grid gutter="xs" gutterMd="md">
+        {projects.map((v) => (
+          <Grid.Col key={v.name} span={12} sm={6}>
+            <ProjectCard {...v} />
+          </Grid.Col>
+        ))}
+      </Grid>
     </PaperWrapper>
   );
 }

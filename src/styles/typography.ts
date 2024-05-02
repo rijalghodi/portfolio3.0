@@ -143,6 +143,7 @@ export const useTypoStyles = createStyles((theme) => {
       fontSize: 8,
       lineHeight: 1.5,
       color: textColor,
+      fontWeight: 400,
       [theme.fn.largerThan('sm')]: {
         fontSize: 10,
       },
@@ -166,16 +167,19 @@ export const useTypoStyles = createStyles((theme) => {
     bodyMd: {
       fontSize: 16,
       color: textColor,
+      fontWeight: 400,
       lineHeight: 1.5,
     },
     bodyLg: {
       fontSize: 18,
       lineHeight: 1.5,
+      fontWeight: 400,
       color: textColor,
     },
     bodyXl: {
       fontSize: 20,
       lineHeight: 1.5,
+      fontWeight: 400,
       color: textColor,
     },
 
