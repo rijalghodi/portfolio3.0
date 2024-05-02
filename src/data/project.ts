@@ -2,6 +2,11 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    name: 'Paper Studio AI',
+    shortDesc: 'Smart Ecosystem for Writing Academic Papers',
+    demoLink: 'https://paperstudio.online',
+  },
+  {
     name: 'Portfolio 3.0',
     shortDesc: 'My portfolio build using nextjs & mantine UI',
     demoLink: 'https://zalcode.my.id',
