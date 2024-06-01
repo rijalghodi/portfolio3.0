@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     name: 'Rully',
     shortDesc: 'AI-Powered Universal Bubble Sheet Grader',
-    demoLink: 'https://rully.vercell.app',
+    demoLink: 'https://rully.vercel.app',
     githubLink: 'https://github.com/rijalghodi/Rully_Web',
   },
   {
