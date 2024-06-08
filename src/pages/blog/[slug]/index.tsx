@@ -101,6 +101,7 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
         </Box>
         {recordMap && (
           <NotionXRenderer
+            showTableOfContents={true}
             recordMap={recordMap}
             fullPage={false}
             darkMode={colorScheme === 'dark'}
