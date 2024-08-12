@@ -8,6 +8,8 @@ import dayjs from 'dayjs';
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExtendedRecordMap } from 'notion-types';
 import { NotionRenderer as NotionXRenderer } from 'react-notion-x';
@@ -99,6 +101,7 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
         </Box>
         {recordMap && (
           <NotionXRenderer
+            showTableOfContents={true}
             recordMap={recordMap}
             fullPage={false}
             darkMode={colorScheme === 'dark'}
@@ -106,6 +109,8 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
             components={{
               Code,
               Equation,
+              nextImage: Image,
+              nextLink: Link,
             }}
           />
         )}
@@ -158,6 +163,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
       },
       recordMap,
     },
-    revalidate: 60 * 20, // Re-generate page every 20 minutes
+    revalidate: 60 * 5, // Re-generate page every 5 minutes
   };
 };

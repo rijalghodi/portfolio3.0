@@ -1,12 +1,14 @@
 import {
-  Badge,
   Grid,
   Group,
   Paper,
   Title,
+  Tooltip,
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import { techStacks } from '@/data';
@@ -36,20 +38,18 @@ export function TechStack() {
                 {v.category}
               </Title>
 
-              <Group spacing="xs">
+              <Group spacing="lg">
                 {v.techs.map((tech, i) => (
-                  <Badge
-                    key={i}
-                    component="li"
-                    py={12}
-                    px={12}
-                    variant="dot"
-                    color={tech.color}
-                    size="md"
-                    radius="xl"
-                  >
-                    {tech.name}
-                  </Badge>
+                  <Tooltip label={tech.name} key={i}>
+                    <Link href={tech.link ?? '#'}>
+                      <Image
+                        src={tech.image}
+                        alt={tech.name}
+                        height={40}
+                        width={40}
+                      />
+                    </Link>
+                  </Tooltip>
                 ))}
               </Group>
             </Paper>

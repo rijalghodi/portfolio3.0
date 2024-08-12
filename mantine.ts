@@ -41,11 +41,11 @@ export const mantineTheme: MantineThemeOverride = {
     },
   },
   fontSizes: {
-    xs: '12px',
-    sm: '14px',
-    md: '16px',
-    lg: '18px',
-    xl: '20px',
+    xs: '14px',
+    sm: '16px',
+    md: '18px',
+    lg: '20px',
+    xl: '22px',
   },
   headings: {
     // properties for all headings\
@@ -76,7 +76,7 @@ export const mantineTheme: MantineThemeOverride = {
       '#58AE1E', // 9
     ],
     neutral: [
-      '#ffffff', // 0
+      '#FAFAFA', // 0
       '#F1F9F5', // 1
       '#E9F6F1', // 2
       '#E2F3ED', // 3
@@ -101,7 +101,7 @@ export const mantineTheme: MantineThemeOverride = {
     ],
   },
 
-  white: '#F1F9F5',
+  white: '#F4F5F5',
   black: '#05192D',
 
   primaryColor: 'brand',

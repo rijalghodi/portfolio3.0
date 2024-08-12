@@ -54,7 +54,7 @@ export function MenuMobileView(props: DrawerProps) {
           backgroundColor:
             colorScheme === 'dark'
               ? theme.colors.dark[6]
-              : theme.colors.neutral[2],
+              : theme.colors.neutral[0],
         },
       })}
     >

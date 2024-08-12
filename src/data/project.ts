@@ -2,6 +2,17 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    name: 'Rully',
+    shortDesc: 'AI-Powered Universal Bubble Sheet Grader',
+    demoLink: 'https://rully.vercel.app',
+    githubLink: 'https://github.com/rijalghodi/Rully_Web',
+  },
+  {
+    name: 'Paper Studio AI',
+    shortDesc: 'Smart Ecosystem for Writing Academic Papers',
+    demoLink: 'https://staging.paperstudio.ai',
+  },
+  {
     name: 'Portfolio 3.0',
     shortDesc: 'My portfolio build using nextjs & mantine UI',
     demoLink: 'https://zalcode.my.id',
