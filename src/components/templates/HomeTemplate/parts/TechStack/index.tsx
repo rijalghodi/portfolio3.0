@@ -33,6 +33,7 @@ export function TechStack() {
               }
               p="md"
               shadow="sm"
+              withBorder
             >
               <Title order={2} className={typo.heading4} mb="sm">
                 {v.category}

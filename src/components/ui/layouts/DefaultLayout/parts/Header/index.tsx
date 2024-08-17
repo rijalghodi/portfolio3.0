@@ -47,6 +47,7 @@ export function Header() {
       }}
     >
       <Paper
+        withBorder
         radius="sm"
         px="md"
         py="xs"

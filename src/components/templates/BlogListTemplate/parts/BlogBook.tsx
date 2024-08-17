@@ -41,13 +41,27 @@ export default function BlogBook() {
     return (
       <Stack spacing={48}>
         {[1, 2, 3, 4, 5, 6].map((v) => (
-          <Group key={v} noWrap align="center">
+          <Group key={v} noWrap align="flex-start" spacing="md">
             <Box w="100%">
               <Skeleton height={10} radius="xl" />
               <Skeleton height={10} mt={10} radius="xl" />
+              <Skeleton height={10} mt={10} radius="xl" />
               <Skeleton height={10} mt={10} width="70%" radius="xl" />
             </Box>
-            <Skeleton height={60} width={80} radius={8} />
+            <Skeleton
+              height={100}
+              width={100}
+              radius={8}
+              sx={{
+                aspectRatio: '16 / 9',
+                width: 200,
+                '@media (max-width: 500px)': {
+                  aspectRatio: '1 / 1',
+                  width: 100,
+                  overflow: 'clip',
+                },
+              }}
+            />
           </Group>
         ))}
       </Stack>

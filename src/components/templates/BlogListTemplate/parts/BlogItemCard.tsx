@@ -1,12 +1,5 @@
-import {
-  Box,
-  Group,
-  Stack,
-  Text,
-  Title,
-  useMantineTheme,
-  // Image,
-} from '@mantine/core';
+import { Box, Group, Stack, Text, Title, useMantineTheme } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 import { IconCalendar } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import Image from 'next/image';
@@ -20,6 +13,8 @@ import { Blog } from '@/types';
 export function BlogItemCard(props: Blog) {
   const { classes: typo } = useTypoStyles();
   const theme = useMantineTheme();
+  const colorScheme = useColorScheme();
+
   return (
     <Link href={`/blog/${props.slug}`}>
       <Group
@@ -34,7 +29,11 @@ export function BlogItemCard(props: Blog) {
           },
         }}
       >
-        <Stack spacing="xs" miw={200} style={{ flexGrow: 1 }}>
+        <Stack
+          spacing="xs"
+          miw={200}
+          style={{ flexGrow: 1, flexShrink: 1, flexBasis: 600 }}
+        >
           <Title order={2} className={typo.heading3} fw={700}>
             {props.title}
           </Title>
@@ -50,7 +49,6 @@ export function BlogItemCard(props: Blog) {
         </Stack>
         {props.image && (
           <Box
-            bg="yellow"
             style={{
               flexBasis: 200,
               maxWidth: 200,
@@ -58,18 +56,25 @@ export function BlogItemCard(props: Blog) {
               flexGrow: 0,
               overflow: 'clip',
             }}
-            sx={{
+            sx={(theme) => ({
+              backgroundColor:
+                colorScheme === 'dark' ? theme.colors.dark[4] : '#ffffff',
               aspectRatio: '16 / 9',
               '@media (max-width: 500px)': {
                 aspectRatio: '1 / 1',
-                maxHeight: 100,
-                maxWidth: '100px !important',
+                maxHeight: 80,
                 overflow: 'clip',
               },
-            }}
+            })}
             pos="relative"
           >
-            <Image src={props.image} alt="image" objectFit="cover" fill />
+            <Image
+              src={props.image}
+              alt="image"
+              objectFit="cover"
+              fill
+              placeholder="empty"
+            />
           </Box>
         )}
       </Group>

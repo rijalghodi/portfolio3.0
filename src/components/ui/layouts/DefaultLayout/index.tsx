@@ -22,8 +22,7 @@ export function DefaultLayout(props: Props) {
         styles={{
           root: {
             borderRadius: theme.spacing.md,
-            padding: '0px 24px 0px 24px',
-            maxWidth: 848,
+            maxWidth: 800,
             margin: '0 auto',
           },
           main: {

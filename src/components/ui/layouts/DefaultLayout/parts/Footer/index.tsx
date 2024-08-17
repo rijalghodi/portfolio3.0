@@ -24,6 +24,7 @@ export function Footer() {
   return (
     <footer>
       <Paper
+        withBorder
         bg={
           colorScheme === 'dark'
             ? theme.colors.dark[6]

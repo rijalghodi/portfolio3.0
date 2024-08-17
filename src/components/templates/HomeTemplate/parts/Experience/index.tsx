@@ -36,6 +36,7 @@ export function Experience() {
               }
               p="md"
               shadow="sm"
+              withBorder
             >
               {v.logo && (
                 <Image

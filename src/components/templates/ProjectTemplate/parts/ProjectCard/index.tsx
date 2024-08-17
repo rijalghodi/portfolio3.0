@@ -20,6 +20,7 @@ export function ProjectCard(props: Project) {
   const { classes: typo } = useTypoStyles();
   const { classes: buttons } = useButtonStyles();
   const theme = useMantineTheme();
+
   return (
     <Paper
       bg={
@@ -27,6 +28,7 @@ export function ProjectCard(props: Project) {
       }
       p="md"
       shadow="sm"
+      withBorder
     >
       {props.articleLink ? (
         <Link href={props.articleLink}>
