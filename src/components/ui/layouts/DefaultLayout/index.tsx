@@ -1,7 +1,6 @@
 import { AppShell, Box, useMantineTheme } from '@mantine/core';
 
 import { Footer, Header } from './parts';
-import { ResponsiveWrapper } from '../../wrapper';
 
 type Props = {
   children: React.ReactNode;
@@ -19,27 +18,25 @@ export function DefaultLayout(props: Props) {
       }
       w="100%"
     >
-      <ResponsiveWrapper>
-        <AppShell
-          styles={{
-            main: {
-              borderRadius: theme.spacing.md,
-              margin: 0,
-              paddingLeft: '0px !important',
-              paddingRight: '0px !important',
-              paddingBottom: 64,
-              paddingTop: 90,
-              width: '100%',
-            },
-          }}
-          navbarOffsetBreakpoint="sm"
-          asideOffsetBreakpoint="sm"
-          footer={<Footer />}
-          header={<Header />}
-        >
-          {props.children}
-        </AppShell>
-      </ResponsiveWrapper>
+      <AppShell
+        styles={{
+          root: {
+            borderRadius: theme.spacing.md,
+            padding: '0px 24px 0px 24px',
+            maxWidth: 848,
+            margin: '0 auto',
+          },
+          main: {
+            paddingBottom: 100,
+          },
+        }}
+        navbarOffsetBreakpoint="sm"
+        asideOffsetBreakpoint="sm"
+        footer={<Footer />}
+        header={<Header />}
+      >
+        {props.children}
+      </AppShell>
     </Box>
   );
 }

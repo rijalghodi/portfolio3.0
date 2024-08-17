@@ -1,9 +1,15 @@
 // app/blog/[slug]/page.tsx
 
-import { Box, Group, Stack, Title, useMantineColorScheme } from '@mantine/core';
+import {
+  Divider,
+  Group,
+  Stack,
+  Title,
+  useMantineColorScheme,
+} from '@mantine/core';
 import { Text } from '@mantine/core';
 //Plugins
-import { IconClock } from '@tabler/icons-react';
+import { IconCalendar } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
@@ -75,7 +81,7 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
       <Head>
         <title>{data?.title} | Rijal Ghodi</title>
       </Head>
-      <Stack mt="md" spacing="lg">
+      <Stack mt="lg" spacing="xs">
         <Breadcrumbs
           breadcrumbs={[
             {
@@ -88,17 +94,19 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
             },
           ]}
         />
-        <Box>
-          <Title order={1} mb="xs">
+        <Stack spacing="xs">
+          <Title order={1} className={typo.heading0} fw={600} mb="xl" mt="xl">
             {data.title}
           </Title>
+          <Divider></Divider>
           <Group spacing={8}>
-            <IconClock size={14} />
+            <IconCalendar size={16} />
             <Text className={typo.bodySm}>
               {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
             </Text>
           </Group>
-        </Box>
+          <Divider></Divider>
+        </Stack>
         {recordMap && (
           <NotionXRenderer
             showTableOfContents={true}

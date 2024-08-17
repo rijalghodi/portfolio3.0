@@ -1,11 +1,11 @@
 import {
+  Box,
   Button,
+  Divider,
   Flex,
-  Grid,
-  Paper,
+  Group,
+  Skeleton,
   Stack,
-  useMantineColorScheme,
-  useMantineTheme,
 } from '@mantine/core';
 import {
   DatabaseObjectResponse,
@@ -20,19 +20,17 @@ import { readBlogs } from '@/utils/client/read-blogs';
 
 import { BlogItemCard } from './BlogItemCard';
 
-type Foo = Omit<QueryDatabaseResponse, 'results'> & {
+type Blog = Omit<QueryDatabaseResponse, 'results'> & {
   results: Array<DatabaseObjectResponse>;
 };
 export default function BlogBook() {
   const { classes } = useButtonStyles();
-  const { colorScheme } = useMantineColorScheme();
-  const theme = useMantineTheme();
 
   const [startCursor, setStartCursor] = useState<null | string | undefined>(
     null,
   );
 
-  const { data, isLoading } = useQuery<Foo>({
+  const { data, isLoading } = useQuery<Blog>({
     queryKey: ['read-blogs', startCursor],
     queryFn: () => {
       return readBlogs({ page_size: 12, start_cursor: startCursor });
@@ -41,44 +39,40 @@ export default function BlogBook() {
 
   if (isLoading)
     return (
-      <Grid gutter="xs" gutterMd="md">
-        {[1, 2, 3, 4, 5].map((v) => (
-          <Grid.Col key={v} span={12} sm={6}>
-            <Paper
-              key={v}
-              h={120}
-              w="100%"
-              bg={
-                colorScheme === 'dark'
-                  ? theme.colors.dark[6]
-                  : theme.colors.neutral[0]
-              }
-            />
-          </Grid.Col>
+      <Stack spacing={48}>
+        {[1, 2, 3, 4, 5, 6].map((v) => (
+          <Group key={v} noWrap align="center">
+            <Box w="100%">
+              <Skeleton height={10} radius="xl" />
+              <Skeleton height={10} mt={10} radius="xl" />
+              <Skeleton height={10} mt={10} width="70%" radius="xl" />
+            </Box>
+            <Skeleton height={60} width={80} radius={8} />
+          </Group>
         ))}
-      </Grid>
+      </Stack>
     );
 
-  // return 'Hello';
   return (
     <Stack>
-      <Grid gutter="xs" gutterMd="md">
-        {data?.results.map(({ properties }, i) => (
-          <Grid.Col key={i} span={12} sm={6}>
-            <BlogItemCard
-              key={i}
-              id={(properties.id as any).unique_id.number}
-              title={(properties.title as any).title
-                ?.map((v: any) => v.plain_text)
-                .join(' ')}
-              excerpt={(properties.excerpt as any).rich_text
-                ?.map((v: any) => v.plain_text)
-                .join('')}
-              slug={(properties.slug as any).rich_text[0].plain_text}
-            />
-          </Grid.Col>
-        ))}
-      </Grid>
+      {data?.results.map(({ properties }, i) => (
+        <>
+          <BlogItemCard
+            key={i}
+            id={(properties.id as any).unique_id.number}
+            title={(properties.title as any).title
+              ?.map((v: any) => v.plain_text)
+              .join(' ')}
+            excerpt={(properties.excerpt as any).rich_text
+              ?.map((v: any) => v.plain_text)
+              .join('')}
+            slug={(properties.slug as any).rich_text[0].plain_text}
+            date={(properties.published_date as any).date.start}
+            image={(properties.image as any).files[0]?.file.url}
+          />
+          <Divider />
+        </>
+      ))}
 
       <Flex justify="space-between">
         <Button

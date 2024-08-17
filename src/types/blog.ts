@@ -3,4 +3,7 @@ export type Blog = {
   title: string;
   slug: string;
   excerpt?: string;
+  date?: string;
+  tags?: string[];
+  image?: string;
 };

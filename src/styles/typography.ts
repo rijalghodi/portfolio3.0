@@ -18,7 +18,7 @@ export const useTypoStyles = createStyles((theme) => {
       fontFamily: theme.fontFamily,
       [theme.fn.largerThan('sm')]: {
         fontSize: 44,
-        fontWeight: 800,
+        fontWeight: 700,
       },
     },
     heading1: {

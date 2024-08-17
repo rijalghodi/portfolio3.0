@@ -15,7 +15,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import React from 'react';
 
-import { ResponsiveWrapper, ZKeyLogo } from '@/components';
+import { ZKeyLogo } from '@/components';
 
 import { useTypoStyles } from '@/styles';
 
@@ -46,50 +46,50 @@ export function Header() {
         zIndex: 100,
       }}
     >
-      <ResponsiveWrapper>
-        <Paper
-          radius="sm"
-          px="md"
-          py="xs"
-          bg={
-            colorScheme === 'dark'
-              ? theme.colors.dark[6]
-              : theme.colors.neutral[0]
-          }
-          shadow="md"
-        >
-          <Flex justify="space-between" align="center">
-            <Group spacing={12}>
-              <ZKeyLogo width={32} height={32} />
-              <Text className={typo.heading5}>Zal Code</Text>
-            </Group>
-            <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-              <MenuDesktopView />
-            </MediaQuery>
+      <Paper
+        radius="sm"
+        px="md"
+        py="xs"
+        maw={800}
+        mx="auto"
+        bg={
+          colorScheme === 'dark'
+            ? theme.colors.dark[6]
+            : theme.colors.neutral[0]
+        }
+        shadow="md"
+      >
+        <Flex justify="space-between" align="center">
+          <Group spacing={12}>
+            <ZKeyLogo width={32} height={32} />
+            <Text className={typo.heading5}>Rijal Ghodi</Text>
+          </Group>
+          <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+            <MenuDesktopView />
+          </MediaQuery>
 
-            <Group spacing="sm">
-              <ActionIcon onClick={handleToggleColorScheme}>
-                {colorScheme === 'dark' ? (
-                  <IconSun size={20} />
-                ) : (
-                  <IconMoon size={18} />
-                )}
-              </ActionIcon>
-              <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-                <Box>
-                  <Burger
-                    opened={opened}
-                    onClick={action.toggle}
-                    size="sm"
-                    color={theme.colors.gray[6]}
-                  />
-                  <MenuMobileView opened={opened} onClose={action.toggle} />
-                </Box>
-              </MediaQuery>
-            </Group>
-          </Flex>
-        </Paper>
-      </ResponsiveWrapper>
+          <Group spacing="sm">
+            <ActionIcon onClick={handleToggleColorScheme}>
+              {colorScheme === 'dark' ? (
+                <IconSun size={20} />
+              ) : (
+                <IconMoon size={18} />
+              )}
+            </ActionIcon>
+            <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+              <Box>
+                <Burger
+                  opened={opened}
+                  onClick={action.toggle}
+                  size="sm"
+                  color={theme.colors.gray[6]}
+                />
+                <MenuMobileView opened={opened} onClose={action.toggle} />
+              </Box>
+            </MediaQuery>
+          </Group>
+        </Flex>
+      </Paper>
     </MantineHeader>
   );
 }

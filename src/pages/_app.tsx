@@ -8,7 +8,7 @@ import { useLocalStorage } from '@mantine/hooks';
 // import 'highlight.js/styles/base16';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { Barlow } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import NextProgress from 'next-progress';
 import React from 'react';
@@ -31,7 +31,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout | any;
 };
 
-const barlow = Barlow({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
 });
@@ -95,31 +95,33 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <QueryClientProvider client={queryClient}>
-        <ColorSchemeProvider
-          colorScheme={colorScheme}
-          toggleColorScheme={toggleColorScheme}
-        >
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            withCSSVariables
-            theme={{
-              ...mantineTheme,
-              colorScheme,
-              fontFamily: barlow.style.fontFamily,
-            }}
+      <div className={`${inter.className}`}>
+        <QueryClientProvider client={queryClient}>
+          <ColorSchemeProvider
+            colorScheme={colorScheme}
+            toggleColorScheme={toggleColorScheme}
           >
-            {getLayout(<Component {...pageProps} />)}
-          </MantineProvider>
-        </ColorSchemeProvider>
+            <MantineProvider
+              withGlobalStyles
+              withNormalizeCSS
+              withCSSVariables
+              theme={{
+                ...mantineTheme,
+                colorScheme,
+                fontFamily: inter.style.fontFamily,
+              }}
+            >
+              {getLayout(<Component {...pageProps} />)}
+            </MantineProvider>
+          </ColorSchemeProvider>
 
-        <NextProgress
-          height={3}
-          color="#22c55e"
-          options={{ showSpinner: false }}
-        />
-      </QueryClientProvider>
+          <NextProgress
+            height={3}
+            color="#22c55e"
+            options={{ showSpinner: false }}
+          />
+        </QueryClientProvider>
+      </div>
     </>
   );
 }

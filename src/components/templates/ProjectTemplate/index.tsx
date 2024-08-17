@@ -9,8 +9,8 @@ export function ProjectTemplate() {
   const { classes: typo } = useTypoStyles();
   return (
     <Stack spacing={64}>
-      <Box pt="sm">
-        <Title order={1} className={typo.heading2} mb="md">
+      <Box pt={54}>
+        <Title order={1} className={typo.heading2} mb="xl">
           My Projects
         </Title>
         <ProjectBook />

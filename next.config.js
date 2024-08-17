@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['www.notion.so', 'notion.so'],
+    domains: [
+      'www.notion.so',
+      'notion.so',
+      'prod-files-secure.s3.us-west-2.amazonaws.com',
+    ],
   },
 };
 

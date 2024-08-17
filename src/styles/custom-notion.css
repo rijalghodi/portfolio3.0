@@ -6,12 +6,14 @@
 
 :root {
   --notion-font: inherit !important;
+  --fg-color: inherit !important;
 }
 
 .notion {
   padding: 0px !important;
   margin: 0px 0px;
   font-size: 1em !important;
+  line-height: 1.75em !important;
 }
 
 .notion-equation-block {
@@ -28,4 +30,12 @@
 
 .light-mode {
   --fg-color: var(--mantine-color-dark-5);
+}
+
+.notion-text {
+  padding: 12px 2px;
+}
+
+.notion-h {
+  font-weight: 700;
 }
