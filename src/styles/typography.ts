@@ -140,7 +140,7 @@ export const useTypoStyles = createStyles((theme) => {
       },
     },
     bodyXxs: {
-      fontSize: 8,
+      fontSize: 10,
       lineHeight: 1.6,
       color: textColor,
       fontWeight: 400,
@@ -149,7 +149,7 @@ export const useTypoStyles = createStyles((theme) => {
       },
     },
     bodyXs: {
-      fontSize: 10,
+      fontSize: 12,
       lineHeight: 1.6,
       color: textColor,
       [theme.fn.largerThan('sm')]: {
@@ -157,7 +157,7 @@ export const useTypoStyles = createStyles((theme) => {
       },
     },
     bodySm: {
-      fontSize: 12,
+      fontSize: 14,
       color: textColor,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
@@ -165,62 +165,71 @@ export const useTypoStyles = createStyles((theme) => {
       },
     },
     bodyMd: {
-      fontSize: 18,
+      fontSize: 16,
       color: textColor,
       fontWeight: 400,
       lineHeight: 1.6,
+      [theme.fn.largerThan('sm')]: {
+        fontSize: 18,
+      },
     },
     bodyLg: {
+      fontSize: 18,
+      lineHeight: 1.6,
+      fontWeight: 400,
+      color: textColor,
+      [theme.fn.largerThan('sm')]: {
+        fontSize: 20,
+      },
+    },
+    bodyXl: {
       fontSize: 20,
       lineHeight: 1.6,
       fontWeight: 400,
       color: textColor,
-    },
-    bodyXl: {
-      fontSize: 22,
-      lineHeight: 1.6,
-      fontWeight: 400,
-      color: textColor,
+      [theme.fn.largerThan('sm')]: {
+        fontSize: 22,
+      },
     },
 
     // Body Only Size
     bodyXxsSizeOnly: {
-      fontSize: 8,
+      fontSize: 10,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 12,
       },
     },
     bodyXsSizeOnly: {
-      fontSize: 10,
+      fontSize: 12,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 14,
       },
     },
     bodySmSizeOnly: {
-      fontSize: 12,
+      fontSize: 14,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 16,
       },
     },
     bodyMdSizeOnly: {
-      fontSize: 14,
+      fontSize: 16,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 18,
       },
     },
     bodyLgSizeOnly: {
-      fontSize: 16,
+      fontSize: 18,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 20,
       },
     },
     bodyXlSizeOnly: {
-      fontSize: 18,
+      fontSize: 20,
       lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 22,
