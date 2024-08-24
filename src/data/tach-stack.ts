@@ -67,11 +67,18 @@ export const techStacks: TechStack[] = [
     category: 'Machine Learning',
     techs: [
       {
-        name: 'Scikit Learn',
+        name: 'LangChain',
         level: 'advance',
-        color: 'blue',
-        image: '/tech-stacks/scikit.png',
-        link: 'https://scikit.org',
+        color: 'green',
+        image: '/tech-stacks/langchain.png',
+        link: 'https://www.langchain.com/',
+      },
+      {
+        name: 'HuggingFace',
+        level: 'advance',
+        color: 'yellow',
+        image: '/tech-stacks/huggingface.png',
+        link: 'https://huggingface.co/',
       },
       {
         name: 'Tensorflow',
@@ -79,6 +86,13 @@ export const techStacks: TechStack[] = [
         color: 'blue',
         image: '/tech-stacks/tensor.png',
         link: 'https://www.tensorflow.org/',
+      },
+      {
+        name: 'Scikit Learn',
+        level: 'advance',
+        color: 'blue',
+        image: '/tech-stacks/scikit.png',
+        link: 'https://scikit.org',
       },
     ],
   },
