@@ -4,7 +4,6 @@ import { IconCalendar } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 import { useTypoStyles } from '@/styles';
 
@@ -38,11 +37,11 @@ export function BlogItemCard(props: Blog) {
             {props.title}
           </Title>
           {props.excerpt && (
-            <Text className={typo.bodyMd}>{props.excerpt}</Text>
+            <Text className={typo.bodySm}>{props.excerpt}</Text>
           )}
           <Group spacing="xs">
             <IconCalendar size={16} />
-            <Text className={typo.bodySm}>
+            <Text className={typo.bodyXs}>
               {dayjs(props.date).format('MMM DD, YYYY')}
             </Text>
           </Group>

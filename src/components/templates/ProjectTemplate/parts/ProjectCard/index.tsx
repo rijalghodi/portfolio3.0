@@ -9,7 +9,6 @@ import {
 } from '@mantine/core';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import Link from 'next/link';
-import React from 'react';
 
 import { useButtonStyles, useTypoStyles } from '@/styles';
 
@@ -23,9 +22,7 @@ export function ProjectCard(props: Project) {
 
   return (
     <Paper
-      bg={
-        colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.neutral[0]
-      }
+      bg={colorScheme === 'dark' ? theme.colors.dark[6] : undefined}
       p="md"
       shadow="sm"
       withBorder
@@ -46,7 +43,7 @@ export function ProjectCard(props: Project) {
           {props.name}
         </Title>
       )}
-      <Text className={typo.bodyMd} mb="sm">
+      <Text className={typo.bodySm} mb="sm">
         {props.shortDesc}
       </Text>
 

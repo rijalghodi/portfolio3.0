@@ -10,7 +10,6 @@ import {
 } from '@mantine/core';
 import { IconPointFilled } from '@tabler/icons-react';
 import Link from 'next/link';
-import React from 'react';
 
 import { experiences } from '@/data';
 
@@ -27,7 +26,7 @@ export function Experience() {
     <SectionWrapper title="My Work Experience">
       <Grid gutter="xs" gutterMd="md">
         {experiences.slice(0, 4).map((v, i) => (
-          <Grid.Col key={i} span={12} sm={6}>
+          <Grid.Col key={i} span={12} sm={12}>
             <Paper
               bg={
                 colorScheme === 'dark'
@@ -48,15 +47,15 @@ export function Experience() {
                   fit="contain"
                 />
               )}
-              <Box my="xs">
+              <Box mt="xs" mb={8}>
                 <Title order={2} className={typo.heading4} mb={8}>
                   {v.position}
                 </Title>
-                <Box mb="xs">
+                <Box mb={0}>
                   {v.companyLink ? (
                     <Link href={v.companyLink}>
                       <Text
-                        className={typo.bodyMd}
+                        className={typo.bodySm}
                         sx={{ '&:hover': { textDecoration: 'underline' } }}
                         span
                       >
@@ -64,19 +63,17 @@ export function Experience() {
                       </Text>
                     </Link>
                   ) : (
-                    <Text className={typo.bodyMd} mb="sm" span>
+                    <Text className={typo.bodySm} span>
                       {v.company}
                     </Text>
                   )}{' '}
                   <IconPointFilled size={10} />{' '}
-                  <Text className={typo.bodyMd} span>
+                  <Text className={typo.bodySm} span>
                     {v.experienceCategory}
                   </Text>
                 </Box>
               </Box>
-              <Text className={typo.bodyMd} mb="sm">
-                {v.shortDesc}
-              </Text>
+              <Text className={typo.bodySm}>{v.shortDesc}</Text>
             </Paper>
           </Grid.Col>
         ))}

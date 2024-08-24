@@ -11,11 +11,7 @@ export function DefaultLayout(props: Props) {
 
   return (
     <Box
-      bg={
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[7]
-          : theme.colors.neutral[1]
-      }
+      bg={theme.colorScheme === 'dark' ? theme.colors.dark[7] : undefined}
       w="100%"
     >
       <AppShell

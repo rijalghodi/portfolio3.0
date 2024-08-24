@@ -4,7 +4,7 @@ export const useTypoStyles = createStyles((theme) => {
   const titleColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[5];
   const textColor =
-    theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.dark[4];
+    theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.dark[3];
   const brandColor =
     theme.colorScheme === 'dark'
       ? theme.colors.brand[5]
@@ -14,7 +14,7 @@ export const useTypoStyles = createStyles((theme) => {
       fontSize: 32,
       color: titleColor,
       fontWeight: 700,
-      lineHeight: 1.3,
+      lineHeight: 1.5,
       fontFamily: theme.fontFamily,
       [theme.fn.largerThan('sm')]: {
         fontSize: 44,
@@ -25,7 +25,7 @@ export const useTypoStyles = createStyles((theme) => {
       fontSize: 22,
       color: titleColor,
       fontWeight: 800,
-      lineHeight: 1.3,
+      lineHeight: 1.5,
       [theme.fn.largerThan('sm')]: {
         fontSize: 32,
         fontWeight: 700,
@@ -33,7 +33,7 @@ export const useTypoStyles = createStyles((theme) => {
     },
     heading2: {
       fontSize: 20,
-      lineHeight: 1.35,
+      lineHeight: 1.5,
       color: titleColor,
       fontWeight: 600,
       [theme.fn.largerThan('sm')]: {
@@ -43,7 +43,7 @@ export const useTypoStyles = createStyles((theme) => {
     },
     heading3: {
       fontSize: 18,
-      lineHeight: 1.4,
+      lineHeight: 1.5,
       color: titleColor,
       fontWeight: 600,
       [theme.fn.largerThan('sm')]: {
@@ -83,7 +83,7 @@ export const useTypoStyles = createStyles((theme) => {
     heading0SizeOnly: {
       fontSize: 32,
       fontWeight: 700,
-      lineHeight: 1.3,
+      lineHeight: 1.5,
       [theme.fn.largerThan('sm')]: {
         fontSize: 44,
         fontWeight: 800,
@@ -92,7 +92,7 @@ export const useTypoStyles = createStyles((theme) => {
     heading1SizeOnly: {
       fontSize: 22,
       fontWeight: 600,
-      lineHeight: 1.3,
+      lineHeight: 1.5,
       [theme.fn.largerThan('sm')]: {
         fontSize: 32,
         fontWeight: 700,
@@ -100,7 +100,7 @@ export const useTypoStyles = createStyles((theme) => {
     },
     heading2SizeOnly: {
       fontSize: 20,
-      lineHeight: 1.35,
+      lineHeight: 1.5,
       fontWeight: 600,
       [theme.fn.largerThan('sm')]: {
         fontSize: 26,
@@ -109,7 +109,7 @@ export const useTypoStyles = createStyles((theme) => {
     },
     heading3SizeOnly: {
       fontSize: 18,
-      lineHeight: 1.4,
+      lineHeight: 1.5,
       fontWeight: 600,
       [theme.fn.largerThan('sm')]: {
         fontSize: 22,
@@ -141,44 +141,44 @@ export const useTypoStyles = createStyles((theme) => {
     },
     bodyXxs: {
       fontSize: 8,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
       color: textColor,
       fontWeight: 400,
       [theme.fn.largerThan('sm')]: {
-        fontSize: 10,
+        fontSize: 12,
       },
     },
     bodyXs: {
       fontSize: 10,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
       color: textColor,
       [theme.fn.largerThan('sm')]: {
-        fontSize: 12,
+        fontSize: 14,
       },
     },
     bodySm: {
       fontSize: 12,
       color: textColor,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
-        fontSize: 14,
+        fontSize: 16,
       },
     },
     bodyMd: {
-      fontSize: 16,
+      fontSize: 18,
       color: textColor,
       fontWeight: 400,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
     },
     bodyLg: {
-      fontSize: 18,
-      lineHeight: 1.5,
+      fontSize: 20,
+      lineHeight: 1.6,
       fontWeight: 400,
       color: textColor,
     },
     bodyXl: {
-      fontSize: 20,
-      lineHeight: 1.5,
+      fontSize: 22,
+      lineHeight: 1.6,
       fontWeight: 400,
       color: textColor,
     },
@@ -186,44 +186,44 @@ export const useTypoStyles = createStyles((theme) => {
     // Body Only Size
     bodyXxsSizeOnly: {
       fontSize: 8,
-      lineHeight: 1.5,
-      [theme.fn.largerThan('sm')]: {
-        fontSize: 10,
-      },
-    },
-    bodyXsSizeOnly: {
-      fontSize: 10,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 12,
       },
     },
-    bodySmSizeOnly: {
-      fontSize: 12,
-      lineHeight: 1.5,
+    bodyXsSizeOnly: {
+      fontSize: 10,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 14,
       },
     },
-    bodyMdSizeOnly: {
-      fontSize: 14,
-      lineHeight: 1.5,
+    bodySmSizeOnly: {
+      fontSize: 12,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 16,
       },
     },
-    bodyLgSizeOnly: {
-      fontSize: 16,
-      lineHeight: 1.5,
+    bodyMdSizeOnly: {
+      fontSize: 14,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 18,
       },
     },
-    bodyXlSizeOnly: {
-      fontSize: 18,
-      lineHeight: 1.5,
+    bodyLgSizeOnly: {
+      fontSize: 16,
+      lineHeight: 1.6,
       [theme.fn.largerThan('sm')]: {
         fontSize: 20,
+      },
+    },
+    bodyXlSizeOnly: {
+      fontSize: 18,
+      lineHeight: 1.6,
+      [theme.fn.largerThan('sm')]: {
+        fontSize: 22,
       },
     },
 

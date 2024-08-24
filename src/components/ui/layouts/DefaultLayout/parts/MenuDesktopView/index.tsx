@@ -35,8 +35,8 @@ export function MenuDesktopView(props: Props) {
               key={menu.link}
               className={
                 activeLink?.link === menu.link
-                  ? cx(typo.bodyMd, classes.oneMenu, classes.activeMenu)
-                  : cx(typo.bodyMd, classes.oneMenu)
+                  ? cx(typo.bodyMdSizeOnly, classes.oneMenu, classes.activeMenu)
+                  : cx(typo.bodyMdSizeOnly, classes.oneMenu)
               }
             >
               <Link

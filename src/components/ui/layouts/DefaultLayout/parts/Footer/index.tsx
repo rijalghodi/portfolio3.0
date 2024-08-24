@@ -61,7 +61,7 @@ export function Footer() {
         </Stack>
         <Divider mt="md" />
         <Text ta="center" py="xs" className={typo.bodySm}>
-          Handcrafted by Rijal Ghodi 2023
+          Handcrafted by Rijal Ghodi 2024
         </Text>
       </Paper>
     </footer>

@@ -39,7 +39,9 @@ export const fetchBlogBySlug = async (slug: string) => {
         },
       },
     })
-    .then((res) => res.results[0] as PageObjectResponse | undefined);
+    .then((res) => {
+      return res.results[0] as PageObjectResponse | undefined;
+    });
 };
 
 export const fetchBlogBlocks = async (pageId: string) => {

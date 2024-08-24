@@ -34,11 +34,11 @@ export const mantineTheme: MantineThemeOverride = {
     },
   },
   fontSizes: {
-    xs: '12px',
-    sm: '14px',
-    md: '16px',
-    lg: '18px',
-    xl: '20px',
+    xs: '14px',
+    sm: '16px',
+    md: '18px',
+    lg: '20px',
+    xl: '22px',
   },
   headings: {
     // properties for all headings\
@@ -94,8 +94,8 @@ export const mantineTheme: MantineThemeOverride = {
     ],
   },
 
-  white: '#EEEEEE',
-  black: '#05192D',
+  white: '#F9F9F9',
+  black: '#233343',
 
   primaryColor: 'brand',
   primaryShade: 8,

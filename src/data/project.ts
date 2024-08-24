@@ -2,6 +2,12 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    name: 'Linguatube',
+    shortDesc: 'Learn English with Youtube Videos',
+    demoLink: 'https://linguatube.vercel.app',
+    githubLink: 'https://github.com/rijalghodi/linguatube',
+  },
+  {
     name: 'Rully',
     shortDesc: 'AI-Powered Universal Bubble Sheet Grader',
     demoLink: 'https://rully.vercel.app',

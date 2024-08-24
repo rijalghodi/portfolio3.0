@@ -49,6 +49,13 @@ export function MenuMobileView(props: DrawerProps) {
           right: theme.spacing.sm,
         },
         content: {
+          borderWidth: '1px !important',
+          // border: '1px solid black',
+          borderStyle: 'solid',
+          borderColor:
+            colorScheme === 'dark'
+              ? theme.colors.dark[4]
+              : theme.colors.gray[3],
           borderRadius: '16px !important',
           padding: theme.spacing.md,
           backgroundColor:
@@ -66,8 +73,12 @@ export function MenuMobileView(props: DrawerProps) {
                 key={menu.link}
                 className={
                   activeLink?.link === menu.link
-                    ? cx(typo.bodyLg, classes.oneMenu, classes.activeMenu)
-                    : cx(typo.bodyLg, classes.oneMenu)
+                    ? cx(
+                        typo.bodyXlSizeOnly,
+                        classes.oneMenu,
+                        classes.activeMenu,
+                      )
+                    : cx(typo.bodyXlSizeOnly, classes.oneMenu)
                 }
                 onClick={props.onClose}
               >

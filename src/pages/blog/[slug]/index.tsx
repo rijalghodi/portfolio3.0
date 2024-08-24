@@ -4,10 +4,10 @@ import {
   Divider,
   Group,
   Stack,
+  Text,
   Title,
   useMantineColorScheme,
 } from '@mantine/core';
-import { Text } from '@mantine/core';
 //Plugins
 import { IconCalendar } from '@tabler/icons-react';
 import dayjs from 'dayjs';
@@ -64,6 +64,7 @@ type Props = {
   data: {
     title?: string;
     last_edited_time?: string;
+    excerpt: string;
   };
   recordMap: ExtendedRecordMap | null;
 };
@@ -71,7 +72,6 @@ type Props = {
 export default function BlogDetailPage({ data, recordMap }: Props) {
   const { classes: typo } = useTypoStyles();
   const { colorScheme } = useMantineColorScheme();
-
   if (!data) {
     notFound();
   }
@@ -94,18 +94,23 @@ export default function BlogDetailPage({ data, recordMap }: Props) {
             },
           ]}
         />
-        <Stack spacing="xs">
-          <Title order={1} className={typo.heading0} fw={600} mb="xl" mt="xl">
+        <Stack spacing="sm">
+          <Title order={1} className={typo.heading0} fw={600} mt="xl">
             {data.title}
           </Title>
-          <Divider></Divider>
-          <Group spacing={8}>
-            <IconCalendar size={16} />
-            <Text className={typo.bodySm}>
-              {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
-            </Text>
-          </Group>
-          <Divider></Divider>
+          <Text fz="lg" className={typo.bodyMd}>
+            {data.excerpt}
+          </Text>
+          <Stack spacing="xs">
+            <Divider />
+            <Group spacing={8}>
+              <IconCalendar size={16} />
+              <Text className={typo.bodySm}>
+                {dayjs(data.last_edited_time).format('MMM DD, YYYY')}
+              </Text>
+            </Group>
+            <Divider />
+          </Stack>
         </Stack>
         {recordMap && (
           <NotionXRenderer
@@ -168,6 +173,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
           ?.map((v: any) => v.plain_text)
           .join(' '),
         last_edited_time: data?.last_edited_time ?? '',
+        excerpt: (data?.properties.excerpt as any).rich_text
+          ?.map((v: any) => v.plain_text)
+          .join(''),
       },
       recordMap,
     },
