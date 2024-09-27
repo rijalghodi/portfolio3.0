@@ -2,6 +2,12 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    name: 'TOEFL PAL',
+    shortDesc: 'Reliable TOEFL Test Simulation',
+    demoLink: 'https://toeflpal.vercel.app',
+    githubLink: 'https://github.com/rijalghodi/toefl-pal-backend',
+  },
+  {
     name: 'Linguatube',
     shortDesc: 'Learn English with Youtube Videos',
     demoLink: 'https://linguatube.vercel.app',
